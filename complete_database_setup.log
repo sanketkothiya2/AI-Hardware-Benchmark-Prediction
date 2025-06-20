@@ -1,0 +1,41 @@
+2025-06-20 12:37:21,931 - INFO - === Starting Complete AI Benchmark Database Setup ===
+2025-06-20 12:37:21,931 - INFO - Checking prerequisites...
+2025-06-20 12:37:21,933 - INFO - All required files found!
+2025-06-20 12:37:22,028 - INFO - PostgreSQL connection successful!
+2025-06-20 12:37:22,029 - INFO - Step 1: Creating database...
+2025-06-20 12:37:22,029 - INFO - Executing SQL file: setup_database.sql
+2025-06-20 12:37:22,345 - ERROR - Failed to execute setup_database.sql
+2025-06-20 12:37:22,345 - ERROR - Error: unrecognized win32 error code: 1920unrecognized win32 error code: 1920psql:D:/projects/AI_Benchmark_kpi/scripts/database/setup_database.sql:13: NOTICE:  database "ai_benchmark" does not exist, skipping
+psql:D:/projects/AI_Benchmark_kpi/scripts/database/setup_database.sql:23: ERROR:  new collation (English_United States.1252) is incompatible with the collation of the template database (English_Canada.1252)
+HINT:  Use the same collation as in the template database, or use template0 as template.
+
+2025-06-20 12:37:22,346 - ERROR - Database setup failed!
+2025-06-20 12:37:45,637 - INFO - === Starting Complete AI Benchmark Database Setup ===
+2025-06-20 12:37:45,637 - INFO - Checking prerequisites...
+2025-06-20 12:37:45,637 - INFO - All required files found!
+2025-06-20 12:37:45,697 - INFO - PostgreSQL connection successful!
+2025-06-20 12:37:45,698 - INFO - Step 1: Creating database...
+2025-06-20 12:37:45,698 - INFO - Executing SQL file: setup_database.sql
+2025-06-20 12:37:46,480 - INFO - Successfully executed setup_database.sql
+2025-06-20 12:37:46,480 - INFO - Output: You are now connected to database "postgres" as user "postgres".
+DROP DATABASE
+CREATE DATABASE
+GRANT
+COMMENT
+                   status                    
+---------------------------------------------
+ AI_BENCHMARK database created successfully!
+(1 row)
+
+ database_name | encoding |      collation      |   character_type    |  size   
+---------------+----------+---------------------+---------------------+---------
+ AI_BENCHMARK  | UTF8     | English_Canada.1252 | English_Canada.1252 | 8827 kB
+(1 row)
+2025-06-20 12:37:46,481 - INFO - Step 2: Creating database schema...
+2025-06-20 12:37:46,481 - INFO - Executing SQL file: create_ai_benchmark_schema.sql
+2025-06-20 12:37:46,638 - ERROR - Failed to execute create_ai_benchmark_schema.sql
+2025-06-20 12:37:46,638 - ERROR - Error: unrecognized win32 error code: 1920unrecognized win32 error code: 1920psql:D:/projects/AI_Benchmark_kpi/scripts/database/create_ai_benchmark_schema.sql:11: NOTICE:  extension "uuid-ossp" already exists, skipping
+psql:D:/projects/AI_Benchmark_kpi/scripts/database/create_ai_benchmark_schema.sql:12: NOTICE:  extension "btree_gin" already exists, skipping
+psql:D:/projects/AI_Benchmark_kpi/scripts/database/create_ai_benchmark_schema.sql:26: ERROR:  relation "manufacturers" already exists
+
+2025-06-20 12:37:46,638 - ERROR - Database setup failed!
