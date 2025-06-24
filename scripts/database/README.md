@@ -18,42 +18,31 @@ This directory contains scripts and documentation for setting up a normalized Po
    ```
 3. **psql command-line tool** accessible from PATH
 
-## Quick Setup (Automated)
-The easiest way to set up the complete database is to run the automated setup script:
+## ⚡ Quick Setup (2 Steps)
 
-```bash
-cd scripts/database
-python complete_database_setup.py
+### Step 1: Create Database Schema
+Run the schema creation script in your PostgreSQL client:
+
+```sql
+-- Connect to AI_BENCHMARK database first
+\c AI_BENCHMARK;
+
+-- Then run the contents of manual_schema_creation.sql
+-- Or execute: psql -U postgres -h localhost -d AI_BENCHMARK -f manual_schema_creation.sql
 ```
 
-This script will:
-1. Create the `AI_BENCHMARK` database
-2. Create all tables with proper relationships
-3. Populate lookup tables with reference data
-4. Import data from your CSV file
-5. Verify the setup is complete
+This creates:
+- ✅ 9 normalized tables with relationships
+- ✅ Indexes for performance
+- ✅ Views for easy querying
+- ✅ Basic lookup data (manufacturers, categories, architectures)
 
-## Manual Setup (Step by Step)
-
-### Step 1: Create Database
+### Step 2: Import CSV Data
 ```bash
-psql -U postgres -h localhost -f setup_database.sql
+python simple_csv_import.py
 ```
 
-### Step 2: Create Schema
-```bash
-psql -U postgres -h localhost -f create_ai_benchmark_schema.sql
-```
-
-### Step 3: Populate Lookup Tables
-```bash
-psql -U postgres -h localhost -f populate_lookup_tables.sql
-```
-
-### Step 4: Import CSV Data
-```bash
-python import_csv_to_database.py
-```
+**That's it!** Your database will be ready with 1,900+ AI benchmark devices.
 
 ## Database Schema
 
@@ -134,14 +123,13 @@ See `sample_queries.sql` for 50+ more advanced analysis queries.
 ## File Structure
 ```
 scripts/database/
-├── README.md                          # This file
-├── setup_database.sql                 # Creates AI_BENCHMARK database
-├── create_ai_benchmark_schema.sql     # Creates all tables and relationships
-├── populate_lookup_tables.sql         # Populates reference/lookup tables
-├── import_csv_to_database.py          # Imports CSV data into normalized tables
-├── complete_database_setup.py         # Automated setup script
-└── sample_queries.sql                 # Collection of analysis queries
+├── README.md                          # This file (documentation)
+├── manual_schema_creation.sql         # ✅ Main schema creation script
+├── simple_csv_import.py               # ✅ CSV data import script  
+└── sample_queries.sql                 # ✅ Collection of analysis queries
 ```
+
+**Essential Files Only:** This directory contains only the 4 core files needed for your AI benchmark database.
 
 ## Database Features
 

@@ -1,0 +1,721 @@
+gpu_name,manufacturer,old_architecture,new_architecture
+RTX A5000,NVIDIA,Unknown,Ampere
+RTX A6000,NVIDIA,Unknown,Ampere
+RTX A4500,NVIDIA,Unknown,Ampere
+TITAN RTX,NVIDIA,Unknown,Turing
+TITAN Xp,NVIDIA,Unknown,Pascal
+TITAN V,NVIDIA,Unknown,Volta
+TITAN Xp COLLECTORS EDITION,NVIDIA,Unknown,Pascal
+NVIDIA TITAN Xp,NVIDIA,Unknown,Pascal
+TITAN V CEO Edition,NVIDIA,Unknown,Volta
+Radeon Pro VII,AMD,Unknown,GCN (Vega)
+Radeon VII,AMD,Unknown,GCN (Vega)
+RTX A5000 Laptop GPU,NVIDIA,Unknown,Ampere
+Radeon Pro WX 8200,AMD,Unknown,GCN (Vega)
+RTX A2000 12GB,NVIDIA,Unknown,Ampere
+NVIDIA TITAN X,NVIDIA,Unknown,Maxwell
+Tesla T10,NVIDIA,Unknown,Turing
+Radeon Pro WX 9100,AMD,Unknown,GCN (Vega)
+GeForce GTX TITAN X,NVIDIA,Unknown,Maxwell
+RTX A2000,NVIDIA,Unknown,Ampere
+Radeon Pro V520 MxGPU,AMD,Unknown,RDNA
+Tesla T4,NVIDIA,Unknown,Turing
+Radeon Pro SSG,AMD,Unknown,GCN (Vega)
+Radeon Instinct MI25 MxGPU,AMD,Unknown,GCN (Vega)
+RTX A2000 Laptop GPU,NVIDIA,Unknown,Ampere
+Radeon Ryzen 9 4900HSS,AMD,Unknown,GCN (Vega)
+GeForce GTX TITAN Z,NVIDIA,Unknown,Kepler
+GeForce GTX TITAN Black,NVIDIA,Unknown,Kepler
+Radeon Ryzen 7 4800HS,AMD,Unknown,GCN (Vega)
+Radeon RX590 GME,AMD,Unknown,GCN
+Radeon Ryzen 9 4900HS,AMD,Unknown,GCN (Vega)
+GeForce GTX Titan,NVIDIA,Unknown,Kepler
+Radeon Ryzen 9 5900HS,AMD,Unknown,RDNA 2
+Radeon Pro Duo,AMD,Unknown,GCN
+Radeon Ryzen 5 4600HS,AMD,Unknown,GCN (Vega)
+Radeon Pro WX 7100,AMD,Unknown,GCN
+Radeon Pro 580,AMD,Unknown,GCN
+FirePro W9100,AMD,Unknown,GCN
+Radeon Pro 580X,AMD,Unknown,GCN
+Radeon Pro 5300,AMD,Unknown,RDNA
+Ryzen 7 5800HS with Radeon Graphics,AMD,Unknown,RDNA 2
+FirePro W8100,AMD,Unknown,GCN
+Ryzen 7 4800HS with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Pro 570,AMD,Unknown,GCN
+FirePro S7150,AMD,Unknown,GCN
+FirePro W9000,AMD,Unknown,GCN
+Radeon PRO W6400,AMD,Unknown,RDNA 2
+Radeon Pro 5300M,AMD,Unknown,RDNA
+Radeon Pro WX 7130,AMD,Unknown,GCN
+Radeon HD 7990,AMD,Unknown,GCN
+Radeon Pro WX 5100,AMD,Unknown,GCN
+FirePro S10000,AMD,Unknown,GCN
+Radeon HD 8990,AMD,Unknown,GCN
+Radeon Ryzen 7 4800H,AMD,Unknown,GCN (Vega)
+FirePro W7100,AMD,Unknown,GCN
+GeForce MX550,NVIDIA,Unknown,Turing
+FirePro S9000,AMD,Unknown,GCN
+Ryzen 9 5900HS with Radeon Graphics,AMD,Unknown,RDNA 2
+FirePro S9050,AMD,Unknown,GCN
+GRID RTX6000P-6Q,NVIDIA,Unknown,Turing
+Radeon Sky 500,AMD,Unknown,GCN
+Radeon HD 7870,AMD,Unknown,GCN
+Radeon Pro 465,AMD,Unknown,GCN
+GeForce GTX 580,NVIDIA,Unknown,Fermi
+Radeon HD 7870 XT,AMD,Unknown,GCN
+FirePro W7000 Adapter,AMD,Unknown,GCN
+GRID RTX6000P-4Q,NVIDIA,Unknown,Turing
+FirePro W7000,AMD,Unknown,GCN
+FirePro S7000,AMD,Unknown,GCN
+FirePro W8000,AMD,Unknown,GCN
+GeForce GTX 480,NVIDIA,Unknown,Fermi
+GRID RTX8000-4Q,NVIDIA,Unknown,Turing
+GeForce GTX 570,NVIDIA,Unknown,Fermi
+Radeon HD 8970M,AMD,Unknown,GCN
+GeForce GTX 880M,NVIDIA,Unknown,Kepler
+GRID RTX8000P-2Q,NVIDIA,Unknown,Turing
+Radeon HD 7850,AMD,Unknown,GCN
+Radeon HD 7970M,AMD,Unknown,GCN
+Radeon Pro WX 4100,AMD,Unknown,GCN
+GeForce MX450,NVIDIA,Unknown,Turing
+Radeon Pro 560X,AMD,Unknown,RDNA
+GRID RTX8000-2Q,NVIDIA,Unknown,Turing
+Tesla C2050,NVIDIA,Unknown,Fermi
+Radeon Pro 560,AMD,Unknown,RDNA
+Radeon Pro 460,AMD,Unknown,GCN
+GeForce GTX 870M,NVIDIA,Unknown,Kepler
+Radeon HD8970M,AMD,Unknown,GCN
+Radeon E8870PCIe,AMD,Unknown,GCN
+GeForce GTX 590,NVIDIA,Unknown,Fermi
+FirePro V7000,AMD,Unknown,GCN
+FirePro W7170M,AMD,Unknown,GCN
+GeForce GTX 470,NVIDIA,Unknown,Fermi
+Radeon Pro 555,AMD,Unknown,RDNA
+Radeon Ryzen 9 5900HX,AMD,Unknown,RDNA 2
+Tesla C2075,NVIDIA,Unknown,Fermi
+Radeon Pro 455,AMD,Unknown,GCN
+Radeon HD 7790,AMD,Unknown,GCN
+FirePro W5000,AMD,Unknown,GCN
+GeForce GTX 560 Ti,NVIDIA,Unknown,Fermi
+GeForce GTX 860M,NVIDIA,Unknown,Kepler
+Radeon HD 6990,AMD,Unknown,VLIW5
+Ryzen 9 5900HX with Radeon Graphics,AMD,Unknown,RDNA 2
+FirePro W5100,AMD,Unknown,GCN
+Ryzen 7 PRO 4700G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon HD 6970,AMD,Unknown,VLIW5
+FirePro W4300,AMD,Unknown,GCN
+GeForce MX350,NVIDIA,Unknown,Pascal
+Radeon Pro V340 MxGPU,AMD,Unknown,GCN (Vega)
+Ryzen 7 5800H with Radeon Graphics,AMD,Unknown,RDNA 2
+FirePro 3D V9800,AMD,Unknown,GCN
+Radeon Ryzen 7 PRO 5750GE,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 5800H,AMD,Unknown,RDNA 2
+Radeon Ryzen 9 5900H,AMD,Unknown,RDNA 2
+Radeon Ryzen 5 4600H,AMD,Unknown,GCN (Vega)
+FirePro V9800,AMD,Unknown,GCN
+Radeon Pro 450,AMD,Unknown,GCN
+Ryzen 9 4900H with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce GTX 560,NVIDIA,Unknown,Fermi
+Radeon Ryzen 9 4900H,AMD,Unknown,GCN (Vega)
+Ryzen 7 Pro 4750G with Radeon Graphics,AMD,Unknown,GCN
+FirePro M6100 FireGL V,AMD,Unknown,GCN
+Radeon HD 6950,AMD,Unknown,VLIW5
+Radeon Pro WX 3100,AMD,Unknown,GCN
+Radeon Pro,AMD,Unknown,GCN
+Ryzen 7 PRO 5750GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 PRO 4750G,AMD,Unknown,GCN (Vega)
+Ryzen 7 PRO 5750G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 4700G,AMD,Unknown,GCN (Vega)
+GeForce GTX 850M,NVIDIA,Unknown,Maxwell
+Ryzen 7 PRO 4750GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce MX330,NVIDIA,Unknown,Pascal
+GeForce GT 1030,NVIDIA,Unknown,Pascal
+Radeon HD 6850 X2,AMD,Unknown,VLIW5
+Ryzen 9 5980HS with Radeon Graphics,AMD,Unknown,GCN (Vega)
+FireStream 9370,AMD,Unknown,GCN
+GeForce MX250,NVIDIA,Unknown,Pascal
+Ryzen 5 PRO 5650G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 4700GE,AMD,Unknown,GCN (Vega)
+Ryzen 5 PRO 5650GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 7 4700GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 7 5800U with Radeon Graphics,AMD,Unknown,RDNA 2
+Radeon Pro WX 3200,AMD,Unknown,GCN
+Ryzen 7 PRO 5850U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+FirePro 3D V8800,AMD,Unknown,GCN
+Radeon Ryzen 5 PRO 4650G,AMD,Unknown,GCN (Vega)
+Ryzen 3 4300GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 5 Pro 4650G with Radeon Graphics,AMD,Unknown,GCN
+Ryzen 3 5300GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce GTX 580M,NVIDIA,Unknown,Fermi
+Radeon Ryzen 5 PRO 5650GE,AMD,Unknown,GCN (Vega)
+GeForce GTX 485M,NVIDIA,Unknown,Fermi
+Ryzen 7 4800U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 3 PRO 5350G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 3 PRO 5350GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 PRO 5850U,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 5800U,AMD,Unknown,RDNA 2
+GeForce MX150,NVIDIA,Unknown,Pascal
+Ryzen 5 PRO 4400G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 3 4300GE,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 Microsoft Surface Edition,AMD,Unknown,GCN (Vega)
+GeForce GTX 460,NVIDIA,Unknown,Fermi
+Radeon Ryzen 7 4800U,AMD,Unknown,GCN (Vega)
+Radeon Pro Ryzen 7 PRO 5850U,AMD,Unknown,GCN (Vega)
+Radeon HD 6970M,AMD,Unknown,VLIW5
+Radeon HD 8950,AMD,Unknown,GCN
+Radeon HD 5870,AMD,Unknown,VLIW5
+Radeon HD 5970,AMD,Unknown,VLIW5
+Radeon HD 6870,AMD,Unknown,VLIW5
+Ryzen 3 5300G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+FirePro V8800,AMD,Unknown,GCN
+Radeon Ryzen 5 PRO 5650G,AMD,Unknown,GCN (Vega)
+Radeon HD 7770,AMD,Unknown,GCN
+Radeon Ryzen 7 PRO 4750GE,AMD,Unknown,GCN (Vega)
+Ryzen 3 Pro 4350G with Radeon Graphics,AMD,Unknown,GCN
+Ryzen 7 4700G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 5 4600G,AMD,Unknown,GCN (Vega)
+Ryzen 5 PRO 5650U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 3 PRO 4350GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 3 PRO 4350G,AMD,Unknown,GCN (Vega)
+Ryzen 7 Extreme Edition,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 PRO 5750G,AMD,Unknown,GCN (Vega)
+Radeon Ryzen Embedded V2718,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 4850U Mobile,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 5 PRO 5650U,AMD,Unknown,GCN (Vega)
+Ryzen 7 4800H with Radeon Graphics,AMD,Unknown,GCN (Vega)
+FirePro M5100,AMD,Unknown,GCN
+Radeon Ryzen 5 Microsoft Surface Edition,AMD,Unknown,GCN (Vega)
+GeForce GTX 560 SE,NVIDIA,Unknown,Fermi
+Ryzen 5 4600G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce GTX 480M,NVIDIA,Unknown,Fermi
+Radeon Ryzen 7 4700U,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 5 PRO 4650GE,AMD,Unknown,GCN (Vega)
+Ryzen 7 4700U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Ryzen 7 PRO 4750U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 7 PRO 4750U,AMD,Unknown,GCN (Vega)
+Ryzen 5 PRO 4500U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce GT 645,NVIDIA,Unknown,Kepler
+GeForce GTX 460 v2,NVIDIA,Unknown,Fermi
+Radeon HD 6850,AMD,Unknown,VLIW5
+Ryzen 5 PRO 4650GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce GTX 460 SE,NVIDIA,Unknown,Fermi
+Radeon HD 5850,AMD,Unknown,VLIW5
+Radeon 550,AMD,Unknown,GCN
+Radeon HD 7660D + HD 7700 Dual,AMD,Unknown,GCN
+GeForce GTX 470M,NVIDIA,Unknown,Fermi
+Ryzen 5 4600U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+GeForce 945M,NVIDIA,Unknown,Maxwell
+FirePro M6100,AMD,Unknown,GCN
+Ryzen 5 4600H with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Pro WX 4150,AMD,Unknown,GCN
+Radeon HD 7560D + 7700 Dual,AMD,Unknown,GCN
+GeForce GTX 570M,NVIDIA,Unknown,Fermi
+Ryzen 3 4300G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon HD 7700-serie,AMD,Unknown,GCN
+GeForce MX130,NVIDIA,Unknown,Pascal
+Radeon HD 8670D + HD 7700 Dual,AMD,Unknown,GCN
+GeForce MX230,NVIDIA,Unknown,Pascal
+Radeon Pro WX 4130,AMD,Unknown,GCN
+FirePro M5100 FireGL V,AMD,Unknown,GCN
+Radeon HD 8570D + HD 7700 Dual,AMD,Unknown,GCN
+FirePro M6000,AMD,Unknown,GCN
+Ryzen 5 4500U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 5 4600U,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 5 4500U,AMD,Unknown,GCN (Vega)
+Ryzen 3 PRO 4200G with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Embedded Radeon E9173,AMD,Unknown,GCN
+Radeon HD 8670D + 7700 Dual,AMD,Unknown,GCN
+Ryzen 3 PRO 4200GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Pro WX 2100,AMD,Unknown,GCN
+FirePro W600,AMD,Unknown,GCN
+Radeon HD 5830,AMD,Unknown,VLIW5
+Ryzen 3 5400U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 3 PRO 4200GE,AMD,Unknown,GCN (Vega)
+FirePro M6000 Mobility Pro,AMD,Unknown,GCN
+Radeon Ryzen 5 PRO 4650U,AMD,Unknown,GCN (Vega)
+Radeon HD 7750,AMD,Unknown,GCN
+Ryzen 5 PRO 4650U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon HD HD7850M,AMD,Unknown,GCN
+Radeon HD 8870M,AMD,Unknown,GCN
+Ryzen 3 5300U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon E8860,AMD,Unknown,GCN
+Radeon HD 6790,AMD,Unknown,VLIW5
+Seria Radeon HD 7700,AMD,Unknown,GCN
+FirePro M4000,AMD,Unknown,GCN
+Radeon Ryzen 3 4300G,AMD,Unknown,GCN (Vega)
+FirePro M4000 Mobility Pro,AMD,Unknown,GCN
+GeForce GTX 550 Ti,NVIDIA,Unknown,Fermi
+Ryzen 3 PRO 5450U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon HD 7560D + HD 6670 Dual,AMD,Unknown,GCN
+Radeon HD 8470D + HD 7500 Dual,AMD,Unknown,GCN
+Ryzen 3 PRO 4300U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+FirePro W4100,AMD,Unknown,GCN
+FirePro V8700,AMD,Unknown,GCN
+Ryzen 3 PRO 4450U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+FirePro W6150M,AMD,Unknown,GCN
+Radeon HD 7870M,AMD,Unknown,GCN
+Radeon Ryzen 3 PRO 4450U,AMD,Unknown,GCN (Vega)
+GeForce 940MX,NVIDIA,Unknown,Pascal
+Radeon HD 6670 + 7660D Dual,AMD,Unknown,VLIW5
+Radeon HD 7660D + HD 6670 Dual,AMD,Unknown,GCN
+GeForce MX110,NVIDIA,Unknown,Pascal
+Radeon Ryzen 3 PRO 4350GE,AMD,Unknown,GCN (Vega)
+Ryzen 5 PRO 4400GE with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon HD 8470D + HD 6670 Dual,AMD,Unknown,GCN
+GeForce 845M,NVIDIA,Unknown,Tesla (Legacy)
+Radeon 550X,AMD,Unknown,GCN
+Radeon HD 7560D + 7670 Dual,AMD,Unknown,GCN
+Radeon Ryzen 5 4600GE,AMD,Unknown,GCN (Vega)
+Radeon Pro WX 4170,AMD,Unknown,GCN
+Radeon Ryzen 3 PRO 5350G,AMD,Unknown,GCN (Vega)
+Radeon Ryzen 3 5300G,AMD,Unknown,GCN (Vega)
+Radeon 540X,AMD,Unknown,GCN
+Radeon HD 7560D + HD 7670 Dual,AMD,Unknown,GCN
+Radeon HD 7850M,AMD,Unknown,GCN
+FirePro M40003,AMD,Unknown,GCN
+Radeon HD 8670D + 6670 Dual,AMD,Unknown,GCN
+Radeon HD 5770,AMD,Unknown,VLIW5
+Ryzen 3 4300U with Radeon Graphics,AMD,Unknown,GCN (Vega)
+Radeon HD 7560D + HD 7700 Dual,AMD,Unknown,GCN
+FirePro W5130M,AMD,Unknown,GCN
+FireStream 9270,AMD,Unknown,GCN
+Radeon HD 8670D + HD 7600 Dual,AMD,Unknown,GCN
+FirePro M5950,AMD,Unknown,GCN
+Radeon Ryzen 3 4300U,AMD,Unknown,GCN (Vega)
+Radeon HD 8790M,AMD,Unknown,GCN
+GeForce 930MX,NVIDIA,Unknown,Pascal
+Radeon Ryzen Embedded V2748,AMD,Unknown,GCN (Vega)
+Radeon 540,AMD,Unknown,GCN
+FirePro 3D V8750,AMD,Unknown,GCN
+FirePro V5900,AMD,Unknown,GCN
+GeForce GTX 560M,NVIDIA,Unknown,Fermi
+Radeon HD 8570D + HD 6670 Dual,AMD,Unknown,GCN
+Radeon HD 7560D + HD 7600 Dual,AMD,Unknown,GCN
+Radeon HD 8570D + 6570 Dual,AMD,Unknown,GCN
+Radeon HD 7660D + 6670 Dual,AMD,Unknown,GCN
+Radeon HD 7560D + HD 6570 Dual,AMD,Unknown,GCN
+FirePro 3D V5800,AMD,Unknown,GCN
+Radeon HD 6770,AMD,Unknown,VLIW5
+Radeon HD 8670D + HD 6670 Dual,AMD,Unknown,GCN
+Radeon HD 7730,AMD,Unknown,GCN
+FirePro 3D V8700,AMD,Unknown,GCN
+Radeon HD 7660D + 7540D Dual,AMD,Unknown,GCN
+GeForce GTX 460M,NVIDIA,Unknown,Fermi
+Radeon HD 7750M,AMD,Unknown,GCN
+FirePro V5800,AMD,Unknown,GCN
+Radeon Ryzen 3 5400U,AMD,Unknown,GCN (Vega)
+GeForce 840A,NVIDIA,Unknown,Tesla (Legacy)
+FireStream 9250,AMD,Unknown,GCN
+Radeon HD 5750,AMD,Unknown,VLIW5
+Radeon Ryzen 3 PRO 5450U,AMD,Unknown,GCN (Vega)
+Radeon HD 7560D + 6670 Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7660D + 7500 Dual,AMD,Unknown,GCN
+Radeon HD 7660D + 6570 Dual,AMD,Unknown,GCN
+GeForce GTX 850M - MODDED,NVIDIA,Unknown,Maxwell
+GeForce 920MX,NVIDIA,Unknown,Pascal
+Radeon HD 8450G + 8600/8700M Dual,AMD,Unknown,GCN
+FirePro M4170,AMD,Unknown,GCN
+GeForce 840M,NVIDIA,Unknown,Tesla (Legacy)
+Mobility Radeon HD 5870,AMD,Unknown,VLIW5
+Radeon HD 7660D + 7670 Dual,AMD,Unknown,GCN
+Radeon HD 7520G + 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7670A,AMD,Unknown,GCN
+Radeon 535,AMD,Unknown,GCN
+Radeon HD 8570D + 6670 Dual,AMD,Unknown,GCN
+Radeon HD 8570D + HD 8570 Dual,AMD,Unknown,GCN
+Radeon HD 8600/8700M,AMD,Unknown,GCN
+Radeon HD 7690M XT,AMD,Unknown,GCN
+Radeon HD 6750,AMD,Unknown,VLIW5
+GeForce 830A,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7690M,AMD,Unknown,GCN
+Radeon HD 7660G + HD 7500/7600 7500/7600 Dual,AMD,Unknown,GCN
+Radeon HD 7660G + HD 7500M/7600M Dual,AMD,Unknown,GCN
+FirePro M4150,AMD,Unknown,GCN
+Radeon HD 7640G + HD 8750M Dual,AMD,Unknown,GCN
+Radeon HD 8570,AMD,Unknown,GCN
+Radeon HD 7560D + 7570 Dual,AMD,Unknown,GCN
+Radeon HD 8690M,AMD,Unknown,GCN
+Radeon HD 7560D + 7560D Dual,AMD,Unknown,GCN
+GeForce 830M,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8670D + 8570 Dual,AMD,Unknown,GCN
+FirePro V4900,AMD,Unknown,GCN
+Radeon HD 8850M,AMD,Unknown,GCN
+Radeon HD 7660G N HD 7660G + HD 7700M N HD 7700M D,AMD,Unknown,GCN
+Radeon HD 6770M,AMD,Unknown,VLIW5
+GeForce GT 645M,NVIDIA,Unknown,Kepler
+FirePro W4170M,AMD,Unknown,GCN
+Radeon HD 8570 + HD 7660D Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7690M Dual,AMD,Unknown,GCN
+Radeon HD 6670/7670,AMD,Unknown,VLIW5
+Radeon 530,AMD,Unknown,GCN
+Radeon HD 6750M,AMD,Unknown,VLIW5
+Radeon HD 7560D + HD 8570 Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 7730M Dual,AMD,Unknown,GCN
+Radeon. HD 7730M,AMD,Unknown,GCN
+Radeon HD 8550G + 7600M Dual,AMD,Unknown,GCN
+FirePro W2100,AMD,Unknown,GCN
+Radeon HD 8650G + 7670M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + HD 7730M Dual,AMD,Unknown,GCN
+Radeon E6760,AMD,Unknown,GCN
+Radeon HD 8570D + HD 6570 Dual,AMD,Unknown,GCN
+Radeon HD 8470D + HD 6450 Dual,AMD,Unknown,GCN
+Radeon HD 8750M,AMD,Unknown,GCN
+Radeon HD 8550G + HD 7600M Dual,AMD,Unknown,GCN
+FirePro 3D V4800,AMD,Unknown,GCN
+Radeon HD 8500M/8700M,AMD,Unknown,GCN
+Radeon HD 8470D + 6570 Dual,AMD,Unknown,GCN
+Radeon HD 6650A,AMD,Unknown,VLIW5
+Radeon HD 7560D + 6570 Dual,AMD,Unknown,GCN
+Radeon 520,AMD,Unknown,GCN
+Radeon HD 7660G + 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + HD 7500/7600 Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G N HD 7640G + HD 7600M N HD 7600M D,AMD,Unknown,GCN
+Radeon HD 7540D + 7500 Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 7600M Dual,AMD,Unknown,GCN
+Radeon HD 8550G + HD 8750M Dual,AMD,Unknown,GCN
+Radeon 535DX,AMD,Unknown,GCN
+Radeon HD 7670,AMD,Unknown,GCN
+Radeon HD 8670D + 7000 Dual,AMD,Unknown,GCN
+Radeon HD 8550G + 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 8790M Dual,AMD,Unknown,GCN
+Radeon HD 8550G + 8750M Dual,AMD,Unknown,GCN
+Radeon HD 8650G N HD 8650G + HD 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 8750M Dual,AMD,Unknown,GCN
+Radeon HD 5670,AMD,Unknown,VLIW5
+Radeon HD 8650G + HD 8750M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + HD 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7500M/7600M Dual,AMD,Unknown,GCN
+Radeon HD 7600M + 7600M Dual,AMD,Unknown,GCN
+Radeon HD 8650G N HD 8650G + HD 8570M Dual,AMD,Unknown,GCN
+Mobility Radeon HD 5000,AMD,Unknown,VLIW5
+GeForce 825M,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8650G + HD 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 6450 + 8470D Dual,AMD,Unknown,VLIW5
+Mobility Radeon HD 5850,AMD,Unknown,VLIW5
+Radeon HD 7660G + HD 7500/7600 Dual,AMD,Unknown,GCN
+Radeon HD 7660G + HD 8500M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 8600M N HD 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7450M Dual,AMD,Unknown,GCN
+Radeon HD 8570D + HD 7000 Dual,AMD,Unknown,GCN
+Radeon HD 6650M,AMD,Unknown,VLIW5
+Radeon HD 7660G + HD 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7650M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 7610M Dual,AMD,Unknown,GCN
+Radeon HD 6670,AMD,Unknown,VLIW5
+Radeon HD 7660G + 7670M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7670M + 7670M Dual,AMD,Unknown,GCN
+Radeon HD 7550M/7650M,AMD,Unknown,GCN
+Radeon HD 7660G N HD 7660G + HD 7600M N HD 7600M D,AMD,Unknown,GCN
+Radeon HD 7540D + 6570 Dual,AMD,Unknown,GCN
+Radeon HD 8670D + HD 7000 Dual,AMD,Unknown,GCN
+Radeon HD 8470D + 6450 Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 8570M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 6550A,AMD,Unknown,VLIW5
+Radeon HD 7660G + HD 7670M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7660G N HD 7660G + HD 7670M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + HD 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7570M/HD 7670M,AMD,Unknown,GCN
+Radeon HD 7640G + 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 6630M,AMD,Unknown,VLIW5
+Radeon HD 8550D,AMD,Unknown,GCN
+Radeon HD 7640G N HD 7640G + HD 7670M Dual,AMD,Unknown,GCN
+Radeon HD 8650G N HD 8650G + HD 8600M N HD 8600M D,AMD,Unknown,GCN
+Radeon HD 7640G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + HD 8500M N HD 8500M Dual,AMD,Unknown,GCN
+FirePro M7740,AMD,Unknown,GCN
+Radeon HD 8550G + 8690M Dual,AMD,Unknown,GCN
+FirePro V3900,AMD,Unknown,GCN
+Radeon HD 8730M,AMD,Unknown,GCN
+Radeon HD 8550G + HD 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 8750M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 8570M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + HD 8750M Dual,AMD,Unknown,GCN
+Radeon HD 6670 + 6670 Dual,AMD,Unknown,VLIW5
+FireStream 9170,AMD,Unknown,GCN
+Radeon HD 8610G + HD 8500M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7670M Dual,AMD,Unknown,GCN
+Radeon HD 7540D + HD 6450 Dual,AMD,Unknown,GCN
+GeForce 8800 Ultra,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7640G + 7400M Dual,AMD,Unknown,GCN
+Radeon HD 8450G + 8750M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7730M,AMD,Unknown,GCN
+Radeon HD 7660D + HD 7000 Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 7670M Dual,AMD,Unknown,GCN
+Radeon HD 7610M,AMD,Unknown,GCN
+Radeon HD 7640G + HD 7700M N HD 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 7470M Dual,AMD,Unknown,GCN
+Radeon HD 8510G + HD 8500M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 8500M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7500/7600 Dual,AMD,Unknown,GCN
+Radeon HD 7520G + HD 8600/8700M Dual,AMD,Unknown,GCN
+GeForce 810A,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7640G + HD 7400M Dual,AMD,Unknown,GCN
+Radeon HD 8570 + 8670D Dual,AMD,Unknown,GCN
+Radeon HD 8550G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7500G + 7500M/7600M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + HD 7600M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7570,AMD,Unknown,GCN
+Radeon HD 8550G N HD 8550G + HD 8600M N HD 8600M D,AMD,Unknown,GCN
+Radeon HD 8610G + 8500M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + HD 8500M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 8600M Dual,AMD,Unknown,GCN
+Radeon HD 8550G + 8500M Dual,AMD,Unknown,GCN
+Radeon HD 8610G + 8670M Dual,AMD,Unknown,GCN
+GeForce 8800 GTX,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8510G + 8500M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 7470M Dual,AMD,Unknown,GCN
+Radeon HD 8550G + HD 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + 7600M Dual,AMD,Unknown,GCN
+GeForce 8800 GTS 512,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8610G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + HD 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 7400M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + 7610M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + HD 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 8500M Dual,AMD,Unknown,GCN
+Radeon HD 8650G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + 7500/7600 Dual,AMD,Unknown,GCN
+Radeon HD 8550G + 8670M Dual,AMD,Unknown,GCN
+Radeon HD 8610G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7620G + 8670M Dual,AMD,Unknown,GCN
+Radeon HD 8450G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + HD 7700M Dual,AMD,Unknown,GCN
+Radeon HD 7520G N HD 7520G + HD 7500/7600 7500/760,AMD,Unknown,GCN
+Radeon HD 7560D + 6450 Dual,AMD,Unknown,GCN
+GeForce 820A,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 6610M,AMD,Unknown,VLIW5
+Radeon HD 7650A,AMD,Unknown,GCN
+Radeon HD 8550G + HD 8500M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 8570M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7600G + HD 7500M/7600M Dual,AMD,Unknown,GCN
+Radeon HD 8670D,AMD,Unknown,GCN
+Radeon HD 8550G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 8450G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + HD 7400M Dual,AMD,Unknown,GCN
+FirePro 3D V7750,AMD,Unknown,GCN
+Radeon HD 7600G + HD 8670M Dual,AMD,Unknown,GCN
+Mobility Radeon HD 5570,AMD,Unknown,VLIW5
+Radeon HD 7520G + 7470M Dual,AMD,Unknown,GCN
+Radeon HD 7560D + HD 7000 Dual,AMD,Unknown,GCN
+Radeon HD 8550G + 8570M Dual,AMD,Unknown,GCN
+RADEON HD6530D,AMD,Unknown,VLIW5
+Radeon HD 8550G + HD 8570M Dual,AMD,Unknown,GCN
+Radeon HD 7640G + 6400M Dual,AMD,Unknown,GCN
+Radeon HD 8650D,AMD,Unknown,GCN
+Radeon HD 7600G N HD 7600G + HD ON HD Dual,AMD,Unknown,GCN
+Radeon HD 7520G + 7670M Dual,AMD,Unknown,GCN
+Radeon HD 8670M,AMD,Unknown,GCN
+GeForce 8800 GT,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7640G + HD 7670M Dual,AMD,Unknown,GCN
+GeForce 820M,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7640G + 7610M Dual,AMD,Unknown,GCN
+Radeon HD 7600G + HD 7550M Dual,AMD,Unknown,GCN
+Radeon HD 7620G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7620G + HD 8670M Dual,AMD,Unknown,GCN
+Radeon HD 7660D,AMD,Unknown,GCN
+Radeon HD 8450G + HD 8750M Dual,AMD,Unknown,GCN
+Radeon HD 7500G + 7550M Dual,AMD,Unknown,GCN
+Radeon HD 6570,AMD,Unknown,VLIW5
+Radeon HD 7520G + HD 7670M Dual,AMD,Unknown,GCN
+Radeon HD8530M,AMD,Unknown,GCN
+Radeon HD 8670D N HD 8670D + HD 8670D Dual,AMD,Unknown,GCN
+Mobility Radeon HD 5730,AMD,Unknown,VLIW5
+Radeon HD 7520G + 7400M Dual,AMD,Unknown,GCN
+Radeon HD 7670M,AMD,Unknown,GCN
+Radeon HD 8610G + HD 8600M Dual,AMD,Unknown,GCN
+Mobility Radeon HD 5000 Serisi,AMD,Unknown,VLIW5
+Radeon HD 8650G,AMD,Unknown,GCN
+Radeon HD 7660G,AMD,Unknown,GCN
+Radeon HD 7640G + HD 8570M Dual,AMD,Unknown,GCN
+Radeon HD 8450G + 8670M Dual,AMD,Unknown,GCN
+Radeon HD 5570,AMD,Unknown,VLIW5
+Radeon HD 7560D,AMD,Unknown,GCN
+FirePro 3D V3800,AMD,Unknown,GCN
+Radeon HD 7600G + 8500M/8700M Dual,AMD,Unknown,GCN
+GeForce 800M,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7660D + 7470 Dual,AMD,Unknown,GCN
+Radeon HD 8690A,AMD,Unknown,GCN
+Radeon HD 7550M,AMD,Unknown,GCN
+GeForce 8800M GTX,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7660G + HD 7600M N HD 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7520G + 7650M Dual,AMD,Unknown,GCN
+Radeon HD 8450G + HD 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7620G N HD 7620G + HD 8600M N HD 8600M D,AMD,Unknown,GCN
+Radeon HD 7650M,AMD,Unknown,GCN
+Mobility Radeon HD 5650,AMD,Unknown,VLIW5
+Radeon HD 7640G,AMD,Unknown,GCN
+Radeon HD 7520G + HD 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7660G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 7570M,AMD,Unknown,GCN
+Radeon HD 7620G + HD 8600M Dual,AMD,Unknown,GCN
+Radeon HD 8350G,AMD,Unknown,GCN
+GeForce 8800 GTS,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8410G,AMD,Unknown,GCN
+Radeon HD 7600G + HD Dual,AMD,Unknown,GCN
+Radeon HD 8570D,AMD,Unknown,GCN
+GeForce 800A,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7640G + HD 7500/7600 Dual,AMD,Unknown,GCN
+Radeon HD 7600G + 7550M Dual,AMD,Unknown,GCN
+RADEON HD6410D,AMD,Unknown,VLIW5
+Radeon HD 7640G N HD 7640G + HD 8570M Dual,AMD,Unknown,GCN
+Radeon HD 8570M,AMD,Unknown,GCN
+Radeon HD 6550D,AMD,Unknown,VLIW5
+Radeon HD 8610G,AMD,Unknown,GCN
+Radeon HD 7470M,AMD,Unknown,GCN
+Radeon HD 7640G + HD 7600M N HD 7600M Dual,AMD,Unknown,GCN
+Radeon HD 7600G + 7500M/7600M Dual,AMD,Unknown,GCN
+FirePro M2000,AMD,Unknown,GCN
+Radeon HD 8550G,AMD,Unknown,GCN
+GeForce 810M,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8500M,AMD,Unknown,GCN
+Radeon HD 7600G + 7450M Dual,AMD,Unknown,GCN
+Radeon HD 5550,AMD,Unknown,VLIW5
+GeForce 8800M GTS,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 6490M,AMD,Unknown,VLIW5
+Radeon HD 7520G + 8750M Dual,AMD,Unknown,GCN
+Radeon HD 7600G + 6400M Dual,AMD,Unknown,GCN
+Radeon HD 8570D + HD8490 Dual,AMD,Unknown,GCN
+Radeon HD 7620G,AMD,Unknown,GCN
+Radeon HD 7520G N HD 7520G + HD 7600M N HD 7600M D,AMD,Unknown,GCN
+Radeon HD 7660G + HD 8600M Dual,AMD,Unknown,GCN
+Radeon HD 8470D,AMD,Unknown,GCN
+Radeon HD 8450G,AMD,Unknown,GCN
+Radeon HD 8510G,AMD,Unknown,GCN
+Radeon HD 7500G + HD 7500M/7600M Dual,AMD,Unknown,GCN
+Radeon HD 6620G,AMD,Unknown,VLIW5
+Radeon HD 6480M,AMD,Unknown,VLIW5
+Mobility Radeon HD 565v,AMD,Unknown,VLIW5
+Radeon HD 7580D,AMD,Unknown,GCN
+Radeon HD 8310E,AMD,Unknown,GCN
+FirePro 3D V3750,AMD,Unknown,GCN
+Radeon HD 7660D + HD 7400 Dual,AMD,Unknown,GCN
+Radeon HD 8570D + HD 8470 Dual,AMD,Unknown,GCN
+Radeon HD 7540D,AMD,Unknown,GCN
+FirePro RG220,AMD,Unknown,GCN
+GeForce 8800 GS,NVIDIA,Unknown,Tesla (Legacy)
+FirePro V3800,AMD,Unknown,GCN
+Radeon HD 7500G,AMD,Unknown,GCN
+Radeon HD 7450M,AMD,Unknown,GCN
+Radeon HD 7600G + HD 7400M Dual,AMD,Unknown,GCN
+Radeon HD 6530D,AMD,Unknown,VLIW5
+Radeon E6460,AMD,Unknown,GCN
+RADEON HD6370D,AMD,Unknown,VLIW5
+Radeon HD 7600G,AMD,Unknown,GCN
+Radeon HD 8280,AMD,Unknown,GCN
+Mobility Radeon HD 560v,AMD,Unknown,VLIW5
+Radeon HD 7470,AMD,Unknown,GCN
+Radeon HD 7520G,AMD,Unknown,GCN
+Radeon HD 7520G + 8600/8700M Dual,AMD,Unknown,GCN
+Radeon HD 8370D,AMD,Unknown,GCN
+Radeon HD 7420G,AMD,Unknown,GCN
+Radeon HD 6520G,AMD,Unknown,VLIW5
+GeForce GT 520MX,NVIDIA,Unknown,Pascal
+Radeon HD 7450A,AMD,Unknown,GCN
+Radeon HD 7480D,AMD,Unknown,GCN
+Mobility Radeon HD 5165,AMD,Unknown,VLIW5
+Radeon HD 6370M,AMD,Unknown,VLIW5
+Radeon HD 8400E,AMD,Unknown,GCN
+Radeon HD 8280G,AMD,Unknown,GCN
+Radeon HD 5470,AMD,Unknown,VLIW5
+Radeon HD 7400G,AMD,Unknown,GCN
+Mobility Radeon HD 550v,AMD,Unknown,VLIW5
+Radeon HD 8490,AMD,Unknown,GCN
+Radeon HD 6450A,AMD,Unknown,VLIW5
+Radeon HD 6480G,AMD,Unknown,VLIW5
+Radeon HD 8400,AMD,Unknown,GCN
+Radeon HD 8470,AMD,Unknown,GCN
+Radeon HD 6370D,AMD,Unknown,VLIW5
+Radeon HD 8330,AMD,Unknown,GCN
+Radeon HD 7640G + 8600M Dual,AMD,Unknown,GCN
+Radeon HD 6410D,AMD,Unknown,VLIW5
+Radeon HD 8330E,AMD,Unknown,GCN
+Radeon HD 8240,AMD,Unknown,GCN
+Radeon HD 8280E,AMD,Unknown,GCN
+Mobility Radeon HD 5470,AMD,Unknown,VLIW5
+Radeon E6465,AMD,Unknown,GCN
+Radeon HD 6470M,AMD,Unknown,VLIW5
+Radeon HD 7340M,AMD,Unknown,GCN
+Radeon HD 7450,AMD,Unknown,GCN
+Radeon HD 6320 Graphic,AMD,Unknown,VLIW5
+Mobility Radeon. HD 5470,AMD,Unknown,VLIW5
+Mobility Radeon HD 5450,AMD,Unknown,VLIW5
+Radeon HD 8250,AMD,Unknown,GCN
+Radeon HD 6380G,AMD,Unknown,VLIW5
+Mobility Radeon HD 545v,AMD,Unknown,VLIW5
+Radeon HD 6450,AMD,Unknown,VLIW5
+RADEON HD7450,AMD,Unknown,GCN
+Radeon HD 6320M,AMD,Unknown,VLIW5
+Radeon HD 7340G,AMD,Unknown,GCN
+Radeon HD 8210E,AMD,Unknown,GCN
+Radeon HD 6430M,AMD,Unknown,VLIW5
+Radeon HD 7350,AMD,Unknown,GCN
+Radeon HD 8210,AMD,Unknown,GCN
+Mobility Radeon HD 540v,AMD,Unknown,VLIW5
+Radeon HD 7310G,AMD,Unknown,GCN
+Mobility Radeon HD 5430,AMD,Unknown,VLIW5
+FirePro 3D V3700,AMD,Unknown,GCN
+Radeon HD 6230,AMD,Unknown,VLIW5
+Mobility Radeon HD 530v,AMD,Unknown,VLIW5
+Radeon HD 7310 - Carte graphique,AMD,Unknown,GCN
+FirePro 2460,AMD,Unknown,GCN
+Radeon HD 7310M,AMD,Unknown,GCN
+Radeon HD 8350,AMD,Unknown,GCN
+GeForce 8600 GTS,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7340,AMD,Unknown,GCN
+GeForce 8200,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 8180,AMD,Unknown,GCN
+Radeon HD 6320,AMD,Unknown,VLIW5
+FirePro 2270,AMD,Unknown,GCN
+Radeon HD 6300M,AMD,Unknown,VLIW5
+RADEON HD 6350,AMD,Unknown,VLIW5
+Radeon HD 6290M,AMD,Unknown,VLIW5
+Radeon HD 5450,AMD,Unknown,VLIW5
+Radeon HD 7310,AMD,Unknown,GCN
+GeForce 8400 GS,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8700M GT,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 6310,AMD,Unknown,VLIW5
+Radeon HD 7290M,AMD,Unknown,GCN
+GeForce 8600 GT,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 7290,AMD,Unknown,GCN
+GeForce 8500 GT,NVIDIA,Unknown,Tesla (Legacy)
+FirePro 2260,AMD,Unknown,GCN
+Radeon HD 6290,AMD,Unknown,VLIW5
+GeForce 8300,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8400M GS,NVIDIA,Unknown,Tesla (Legacy)
+Radeon HD 6250,AMD,Unknown,VLIW5
+GeForce 8600 GS,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8600M GT,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8400,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8100 / nForce 720a,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8600M GS,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8200M G,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8400 SE,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8300 GS,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8400M GT,NVIDIA,Unknown,Tesla (Legacy)
+GeForce 8400M G,NVIDIA,Unknown,Tesla (Legacy)
+FirePro 2450,AMD,Unknown,GCN
+GeForce FX 5600XT,NVIDIA,Unknown,Turing
+GeForce4 MX Integrated GPU,NVIDIA,Unknown,Pascal
+GeForce4 Ti 4600,NVIDIA,Unknown,Turing
+GeForce2 MX with DVI-D and TV-out,NVIDIA,Unknown,Pascal
+GeForce4 MX 440SE,NVIDIA,Unknown,Pascal
+GeForce4 MX 440 with AGP8X,NVIDIA,Unknown,Pascal
+GeForce4 MX 4000,NVIDIA,Unknown,Pascal
+GeForce4 MX 420,NVIDIA,Unknown,Pascal
+GeForce4 MX 440,NVIDIA,Unknown,Pascal
+GeForce2 MX/MX 400,NVIDIA,Unknown,Pascal
+GeForce4 MX 460,NVIDIA,Unknown,Pascal
+GeForce2 MX,NVIDIA,Unknown,Pascal
+64MB GeForce2 MX with TV Out,NVIDIA,Unknown,Pascal
+GeForce2 MX 100/200,NVIDIA,Unknown,Pascal
