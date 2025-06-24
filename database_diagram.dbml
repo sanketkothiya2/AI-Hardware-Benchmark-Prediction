@@ -1,0 +1,181 @@
+// AI Benchmark Normalized Database Schema
+// For use with dbdiagram.io
+
+Project AI_Benchmark {
+  database_type: 'PostgreSQL'
+  Note: 'AI Benchmark GPU Performance Database - Normalized Schema'
+}
+
+// Lookup Tables
+Table manufacturers {
+  manufacturer_id integer [primary key, increment]
+  name varchar(50) [unique, not null]
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'GPU manufacturers (NVIDIA, AMD, Intel)'
+}
+
+Table architectures {
+  architecture_id integer [primary key, increment]
+  name varchar(50) [unique, not null]
+  manufacturer_id integer [ref: > manufacturers.manufacturer_id]
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'GPU architectures (Ampere, RDNA 2, Ada Lovelace, etc.)'
+}
+
+Table categories {
+  category_id integer [primary key, increment]
+  name varchar(50) [unique, not null]
+  description text
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'GPU categories (Consumer, Professional, Mobile)'
+}
+
+// Main GPU Table
+Table gpus {
+  gpu_id integer [primary key, increment]
+  gpu_name varchar(200) [not null]
+  manufacturer_id integer [ref: > manufacturers.manufacturer_id]
+  architecture_id integer [ref: > architectures.architecture_id]
+  category_id integer [ref: > categories.category_id]
+  
+  // Classification fields
+  performance_category varchar(50)
+  generation_category varchar(50)
+  performance_tier varchar(50)
+  generation varchar(50)
+  efficiency_class varchar(50)
+  
+  // Basic specifications
+  tdp integer
+  process_size_nm integer
+  test_date integer
+  price decimal(10,2)
+  
+  // Derived metrics
+  power_performance decimal(10,2)
+  gpu_value decimal(10,2)
+  price_performance_index decimal(10,2)
+  is_legacy_low_perf boolean [default: false]
+  
+  // Timestamps
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  updated_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'Main GPU information table with classifications and basic specs'
+}
+
+// Performance Metrics Table
+Table performance_metrics {
+  metric_id integer [primary key, increment]
+  gpu_id integer [ref: - gpus.gpu_id]
+  
+  // Benchmark scores
+  g3d_mark integer
+  g2d_mark integer
+  
+  // Performance calculations (large values stored as BIGINT)
+  fp32_final bigint
+  flops_per_watt decimal(10,6)
+  gflops_per_watt decimal(10,6)
+  performance_per_dollar_per_watt decimal(10,6)
+  
+  // FP precision performance (large values)
+  fp16_performance bigint
+  fp16_performance_predicted bigint
+  
+  // Integer performance (large values)
+  int8_performance bigint
+  int8_performance_estimated bigint
+  
+  // AI-specific metrics
+  tops_per_watt decimal(10,6)
+  relative_latency_index decimal(10,2)
+  compute_usage_percent decimal(5,2)
+  
+  // Throughput metrics (fps)
+  throughput_resnet50_imagenet_fps decimal(10,2)
+  throughput_bert_base_fps decimal(10,2)
+  throughput_gpt2_small_fps decimal(10,2)
+  throughput_mobilenetv2_fps decimal(10,2)
+  throughput_efficientnet_b0_fps decimal(10,2)
+  avg_throughput_fps decimal(10,2)
+  
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'GPU performance metrics and benchmark scores'
+}
+
+// Memory Specifications Table
+Table memory_specs {
+  memory_id integer [primary key, increment]
+  gpu_id integer [ref: - gpus.gpu_id]
+  
+  memory_size_bytes bigint
+  memory_gb decimal(8,3)
+  memory_tier varchar(50)
+  memory_bandwidth_bytes_per_sec bigint
+  
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'GPU memory specifications and bandwidth'
+}
+
+// Process Technology Table
+Table process_technology {
+  process_id integer [primary key, increment]
+  gpu_id integer [ref: - gpus.gpu_id]
+  
+  // API Support scores
+  cuda_support integer
+  opencl_support integer
+  vulkan_support integer
+  metal_support integer
+  
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'GPU API support and process technology'
+}
+
+// AI Performance Table
+Table ai_performance {
+  ai_perf_id integer [primary key, increment]
+  gpu_id integer [ref: - gpus.gpu_id]
+  
+  ai_efficiency_tier varchar(50)
+  ai_performance_category varchar(50)
+  
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  Note: 'AI-specific performance classifications'
+}
+
+// Indexes for performance optimization
+TableGroup "Lookup Tables" {
+  manufacturers
+  architectures
+  categories
+}
+
+TableGroup "GPU Core Data" {
+  gpus
+}
+
+TableGroup "Performance Data" {
+  performance_metrics
+  memory_specs
+  process_technology
+  ai_performance
+}
+
+// Relationships summary (already defined above with ref)
+// manufacturers 1:many architectures
+// manufacturers 1:many gpus
+// architectures 1:many gpus  
+// categories 1:many gpus
+// gpus 1:1 performance_metrics
+// gpus 1:1 memory_specs
+// gpus 1:1 process_technology
+// gpus 1:1 ai_performance 
