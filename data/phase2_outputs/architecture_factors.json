@@ -1,0 +1,128 @@
+{
+  "Ampere": {
+    "compute_efficiency": 1.0,
+    "ai_acceleration": 1.25,
+    "memory_efficiency": 1.1,
+    "power_efficiency": 1.15,
+    "generation_factor": 1.5
+  },
+  "RDNA 2": {
+    "compute_efficiency": 0.9,
+    "ai_acceleration": 0.7,
+    "memory_efficiency": 1.0,
+    "power_efficiency": 1.0,
+    "generation_factor": 1.35
+  },
+  "Turing": {
+    "compute_efficiency": 0.85,
+    "ai_acceleration": 1.0,
+    "memory_efficiency": 0.95,
+    "power_efficiency": 0.9,
+    "generation_factor": 1.275
+  },
+  "Pascal": {
+    "compute_efficiency": 0.75,
+    "ai_acceleration": 0.6,
+    "memory_efficiency": 0.8,
+    "power_efficiency": 0.8,
+    "generation_factor": 1.125
+  },
+  "Volta": {
+    "compute_efficiency": 0.9,
+    "ai_acceleration": 1.1,
+    "memory_efficiency": 1.0,
+    "power_efficiency": 0.85,
+    "generation_factor": 1.35
+  },
+  "RDNA": {
+    "compute_efficiency": 0.8,
+    "ai_acceleration": 0.6,
+    "memory_efficiency": 0.9,
+    "power_efficiency": 0.95,
+    "generation_factor": 1.2000000000000002
+  },
+  "GCN (Vega)": {
+    "compute_efficiency": 0.7,
+    "ai_acceleration": 0.5,
+    "memory_efficiency": 0.85,
+    "power_efficiency": 0.75,
+    "generation_factor": 0.9820554186614625
+  },
+  "Ada Lovelace": {
+    "compute_efficiency": 1.15,
+    "ai_acceleration": 1.4,
+    "memory_efficiency": 1.2,
+    "power_efficiency": 1.25,
+    "generation_factor": 1.6500000000000001
+  },
+  "Maxwell": {
+    "compute_efficiency": 0.65,
+    "ai_acceleration": 0.4,
+    "memory_efficiency": 0.7,
+    "power_efficiency": 0.75,
+    "generation_factor": 0.43386602233375327
+  },
+  "GCN": {
+    "compute_efficiency": 0.6,
+    "ai_acceleration": 0.4,
+    "memory_efficiency": 0.75,
+    "power_efficiency": 0.7,
+    "generation_factor": 0.3252665228356949
+  },
+  "Kepler": {
+    "compute_efficiency": 0.5,
+    "ai_acceleration": 0.3,
+    "memory_efficiency": 0.6,
+    "power_efficiency": 0.6,
+    "generation_factor": 0.4473160887270525
+  },
+  "Fermi": {
+    "compute_efficiency": 0.7,
+    "ai_acceleration": 0.6,
+    "memory_efficiency": 0.8,
+    "power_efficiency": 0.8,
+    "generation_factor": 0.6735942794957084
+  },
+  "RDNA 3": {
+    "compute_efficiency": 1.0,
+    "ai_acceleration": 0.8,
+    "memory_efficiency": 1.05,
+    "power_efficiency": 1.1,
+    "generation_factor": 0.5518575096476896
+  },
+  "Gen9/Gen11": {
+    "compute_efficiency": 0.4,
+    "ai_acceleration": 0.3,
+    "memory_efficiency": 0.6,
+    "power_efficiency": 1.1,
+    "generation_factor": 0.0743467845925354
+  },
+  "VLIW5": {
+    "compute_efficiency": 0.7,
+    "ai_acceleration": 0.6,
+    "memory_efficiency": 0.8,
+    "power_efficiency": 0.8,
+    "generation_factor": 0.19683641217051234
+  },
+  "Xe": {
+    "compute_efficiency": 0.6,
+    "ai_acceleration": 0.5,
+    "memory_efficiency": 0.8,
+    "power_efficiency": 1.2,
+    "generation_factor": 0.28813914873394825
+  },
+  "Unknown": {
+    "compute_efficiency": 0.7,
+    "ai_acceleration": 0.6,
+    "memory_efficiency": 0.8,
+    "power_efficiency": 0.8,
+    "generation_factor": 0.07029237247985035
+  },
+  "Tesla (Legacy)": {
+    "compute_efficiency": 0.7,
+    "ai_acceleration": 0.6,
+    "memory_efficiency": 0.8,
+    "power_efficiency": 0.8,
+    "generation_factor": 0.10647461523629384
+  }
+}

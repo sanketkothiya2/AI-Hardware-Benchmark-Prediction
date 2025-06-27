@@ -1,0 +1,1006 @@
+{
+  "dataset_info": {
+    "total_records": 2108,
+    "manufacturers": [
+      "NVIDIA",
+      "AMD",
+      "Intel"
+    ],
+    "architectures": [
+      "Ampere",
+      "RDNA 2",
+      "Turing",
+      "Pascal",
+      "Volta",
+      "RDNA",
+      "GCN (Vega)",
+      "Ada Lovelace",
+      "Maxwell",
+      "GCN",
+      "Kepler",
+      "Fermi",
+      "RDNA 3",
+      "Gen9/Gen11",
+      "VLIW5",
+      "Xe",
+      "Unknown",
+      "Tesla (Legacy)"
+    ],
+    "performance_categories": [
+      "AI_Flagship",
+      "AI_High_End",
+      "AI_Mid_Range",
+      "AI_Entry",
+      "AI_Basic",
+      "AI_Legacy"
+    ]
+  },
+  "bias_analysis": {
+    "NVIDIA": {
+      "count": 733,
+      "architectures": [
+        "Ampere",
+        "Turing",
+        "Pascal",
+        "Volta",
+        "Ada Lovelace",
+        "Maxwell",
+        "Kepler",
+        "Fermi",
+        "Unknown",
+        "Tesla (Legacy)"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 1748157571623.4653,
+          "median": 227600000000.0,
+          "std": 4023336667926.7915,
+          "count": 733
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.013819710777626193,
+          "median": 0.003457,
+          "std": 0.02345411734312758,
+          "count": 733
+        },
+        "G3Dmark": {
+          "mean": 3098.888130968622,
+          "median": 569.0,
+          "std": 5216.593020241693,
+          "count": 733
+        },
+        "powerPerformance": {
+          "mean": 26.683119289222372,
+          "median": 8.642857,
+          "std": 37.26061323838149,
+          "count": 733
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 13.819718188267395,
+          "median": 3.457143,
+          "std": 23.45411148262457,
+          "count": 733
+        }
+      },
+      "bias_factors": {
+        "FP32_Final": 1.669603291195082,
+        "TOPs_per_Watt": 1.5903444505272495,
+        "G3Dmark": 1.469798488337688,
+        "powerPerformance": 1.434893224420094,
+        "GFLOPS_per_Watt": 1.5903452991616007
+      }
+    },
+    "AMD": {
+      "count": 1226,
+      "architectures": [
+        "RDNA 2",
+        "RDNA",
+        "GCN (Vega)",
+        "GCN",
+        "RDNA 3",
+        "VLIW5",
+        "Unknown"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 727700489396.4111,
+          "median": 298200000000.0,
+          "std": 1398011757423.248,
+          "count": 1226
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.006398905383360523,
+          "median": 0.003894,
+          "std": 0.008453675192701305,
+          "count": 1226
+        },
+        "G3Dmark": {
+          "mean": 1703.8507340946167,
+          "median": 745.5,
+          "std": 2910.2842755717656,
+          "count": 1226
+        },
+        "powerPerformance": {
+          "mean": 15.321081038336052,
+          "median": 9.735,
+          "std": 18.793424750574406,
+          "count": 1226
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 6.398900720228385,
+          "median": 3.894,
+          "std": 8.453670553604441,
+          "count": 1226
+        }
+      },
+      "bias_factors": {
+        "FP32_Final": 0.6950009265882193,
+        "TOPs_per_Watt": 0.7363731289045369,
+        "G3Dmark": 0.8081341202021871,
+        "powerPerformance": 0.8238960046016519,
+        "GFLOPS_per_Watt": 0.7363725903511232
+      }
+    },
+    "Intel": {
+      "count": 149,
+      "architectures": [
+        "Gen9/Gen11",
+        "Xe"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 225640268456.37582,
+          "median": 118800000000.0,
+          "std": 270427504378.25616,
+          "count": 149
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.002302731543624161,
+          "median": 0.00125,
+          "std": 0.0027041757465047947,
+          "count": 149
+        },
+        "G3Dmark": {
+          "mean": 564.1006711409397,
+          "median": 297.0,
+          "std": 676.0687609456405,
+          "count": 149
+        },
+        "powerPerformance": {
+          "mean": 5.75683444966443,
+          "median": 3.125,
+          "std": 6.76044617322726,
+          "count": 149
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 2.30273377852349,
+          "median": 1.25,
+          "std": 2.7041784676564964,
+          "count": 149
+        }
+      },
+      "bias_factors": {
+        "FP32_Final": 0.2155010171600541,
+        "TOPs_per_Watt": 0.26499370286284496,
+        "G3Dmark": 0.2675521924872039,
+        "powerPerformance": 0.30957560307681725,
+        "GFLOPS_per_Watt": 0.2649939593561707
+      }
+    }
+  },
+  "architecture_analysis": {
+    "Ampere": {
+      "count": 29,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 14437596551724.139,
+          "median": 11407900000000.0,
+          "std": 10251599943997.688,
+          "count": 29
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.07773037931034481,
+          "median": 0.079074,
+          "std": 0.02877419668534118,
+          "count": 29
+        },
+        "G3Dmark": {
+          "mean": 17298.44827586207,
+          "median": 16522.0,
+          "std": 5863.003165042681,
+          "count": 29
+        },
+        "powerPerformance": {
+          "mean": 102.79206337931035,
+          "median": 101.03,
+          "std": 26.28831838525954,
+          "count": 29
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 77.73037220689656,
+          "median": 79.07375,
+          "std": 28.77414531395902,
+          "count": 29
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 13.788836378931043,
+        "TOPs_per_Watt": 8.945055317200989,
+        "G3Dmark": 8.20463083915926,
+        "powerPerformance": 5.527675893826571,
+        "GFLOPS_per_Watt": 8.945054476311123
+      }
+    },
+    "RDNA 2": {
+      "count": 32,
+      "manufacturers": [
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 4697675000000.0,
+          "median": 3163800000000.0,
+          "std": 4383637446378.3296,
+          "count": 32
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.02685696875,
+          "median": 0.028128,
+          "std": 0.01806871876044766,
+          "count": 32
+        },
+        "G3Dmark": {
+          "mean": 8693.96875,
+          "median": 7174.5,
+          "std": 7277.65031863185,
+          "count": 32
+        },
+        "powerPerformance": {
+          "mean": 51.148246937500005,
+          "median": 55.5583335,
+          "std": 29.401802827958015,
+          "count": 32
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 26.856960656250003,
+          "median": 28.128,
+          "std": 18.068696136321204,
+          "count": 32
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 4.4865827704999415,
+        "TOPs_per_Watt": 3.090645809946745,
+        "G3Dmark": 4.123537729130915,
+        "powerPerformance": 2.750513243076067,
+        "GFLOPS_per_Watt": 3.090644870435677
+      }
+    },
+    "Turing": {
+      "count": 65,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 5360018461538.462,
+          "median": 4804200000000.0,
+          "std": 3795996369321.742,
+          "count": 65
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.04555764615384615,
+          "median": 0.044957,
+          "std": 0.0327514360460112,
+          "count": 65
+        },
+        "G3Dmark": {
+          "mean": 9785.615384615385,
+          "median": 9743.0,
+          "std": 5634.80275190575,
+          "count": 65
+        },
+        "powerPerformance": {
+          "mean": 83.0820738,
+          "median": 73.561538,
+          "std": 51.53519018875825,
+          "count": 65
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 45.557650107692304,
+          "median": 44.9568,
+          "std": 32.75142098567089,
+          "count": 65
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 5.1191635179317565,
+        "TOPs_per_Watt": 5.242682057945242,
+        "G3Dmark": 4.641304265238528,
+        "powerPerformance": 4.467764936858118,
+        "GFLOPS_per_Watt": 5.242682499208108
+      }
+    },
+    "Pascal": {
+      "count": 66,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 3051568181818.1816,
+          "median": 2031250000000.0,
+          "std": 3327740654704.3335,
+          "count": 66
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.027122030303030297,
+          "median": 0.031106500000000002,
+          "std": 0.018745666997156924,
+          "count": 66
+        },
+        "G3Dmark": {
+          "mean": 5931.545454545455,
+          "median": 4341.0,
+          "std": 5605.436317833493,
+          "count": 66
+        },
+        "powerPerformance": {
+          "mean": 56.37432833333334,
+          "median": 70.2878015,
+          "std": 36.83848384012703,
+          "count": 66
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 27.122071454545456,
+          "median": 31.106738,
+          "std": 18.745690423069497,
+          "count": 66
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 2.9144445342752077,
+        "TOPs_per_Watt": 3.121148559005164,
+        "G3Dmark": 2.813324061450436,
+        "powerPerformance": 3.031547431915377,
+        "GFLOPS_per_Watt": 3.1211532864599705
+      }
+    },
+    "Volta": {
+      "count": 3,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 6938533333333.333,
+          "median": 6795200000000.0,
+          "std": 530915034005.7563,
+          "count": 3
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.027754333333333336,
+          "median": 0.027181,
+          "std": 0.0021238545932651173,
+          "count": 3
+        },
+        "G3Dmark": {
+          "mean": 17346.333333333332,
+          "median": 16988.0,
+          "std": 1327.2875850143907,
+          "count": 3
+        },
+        "powerPerformance": {
+          "mean": 69.38533333333334,
+          "median": 67.952,
+          "std": 5.3091503400575615,
+          "count": 3
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 27.754133333333332,
+          "median": 27.1808,
+          "std": 2.123660136023025,
+          "count": 3
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 6.626747083583444,
+        "TOPs_per_Watt": 3.1939127167704635,
+        "G3Dmark": 8.227342657756992,
+        "powerPerformance": 3.7312183630023865,
+        "GFLOPS_per_Watt": 3.193889692804561
+      }
+    },
+    "RDNA": {
+      "count": 54,
+      "manufacturers": [
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 2691518518518.5186,
+          "median": 1685750000000.0,
+          "std": 2170922913997.2976,
+          "count": 54
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.020753888888888888,
+          "median": 0.0211415,
+          "std": 0.014903047594705685,
+          "count": 54
+        },
+        "G3Dmark": {
+          "mean": 5916.314814814815,
+          "median": 3578.0,
+          "std": 4567.0118872482635,
+          "count": 54
+        },
+        "powerPerformance": {
+          "mean": 46.01105077777779,
+          "median": 43.6691665,
+          "std": 33.97239441452074,
+          "count": 54
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 20.753845481481477,
+          "median": 21.1411715,
+          "std": 14.903068854624033,
+          "count": 54
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 2.57057387147189,
+        "TOPs_per_Watt": 2.3883156856465697,
+        "G3Dmark": 2.8061001894336317,
+        "powerPerformance": 2.474258886072173,
+        "GFLOPS_per_Watt": 2.388310684151389
+      }
+    },
+    "GCN (Vega)": {
+      "count": 125,
+      "manufacturers": [
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 1468944000000.0,
+          "median": 872400000000.0,
+          "std": 1550963924540.4153,
+          "count": 125
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.011759736000000002,
+          "median": 0.008736,
+          "std": 0.008412499301772488,
+          "count": 125
+        },
+        "G3Dmark": {
+          "mean": 3672.36,
+          "median": 2181.0,
+          "std": 3877.409811351037,
+          "count": 125
+        },
+        "powerPerformance": {
+          "mean": 29.399342567999998,
+          "median": 21.84,
+          "std": 21.031218552157288,
+          "count": 125
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 11.759737023999996,
+          "median": 8.736,
+          "std": 8.412487415725284,
+          "count": 125
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 1.402936312373518,
+        "TOPs_per_Watt": 1.3532867068060277,
+        "G3Dmark": 1.7417954274279177,
+        "powerPerformance": 1.5809589949353273,
+        "GFLOPS_per_Watt": 1.353286821099768
+      }
+    },
+    "Ada Lovelace": {
+      "count": 3,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 9474333333333.334,
+          "median": 10406400000000.0,
+          "std": 2054511059433.201,
+          "count": 3
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.09177266666666667,
+          "median": 0.094604,
+          "std": 0.045928499924701806,
+          "count": 3
+        },
+        "G3Dmark": {
+          "mean": 14048.333333333334,
+          "median": 13622.0,
+          "std": 1306.744938131896,
+          "count": 3
+        },
+        "powerPerformance": {
+          "mean": 128.49943166666665,
+          "median": 118.254545,
+          "std": 37.7116672844792,
+          "count": 3
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 91.772462,
+          "median": 94.603636,
+          "std": 45.92861737990087,
+          "count": 3
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 9.048599721203917,
+        "TOPs_per_Watt": 10.561013431606002,
+        "G3Dmark": 6.663105676726464,
+        "powerPerformance": 6.910097797854066,
+        "GFLOPS_per_Watt": 10.560989851304969
+      }
+    },
+    "Maxwell": {
+      "count": 193,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 698891191709.8446,
+          "median": 174800000000.0,
+          "std": 1208264401586.325,
+          "count": 193
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.006697626943005181,
+          "median": 0.002464,
+          "std": 0.00856277423622276,
+          "count": 193
+        },
+        "G3Dmark": {
+          "mean": 1696.1709844559587,
+          "median": 437.0,
+          "std": 2839.5475260864564,
+          "count": 193
+        },
+        "powerPerformance": {
+          "mean": 16.502041523316063,
+          "median": 6.16,
+          "std": 20.98558572772892,
+          "count": 193
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 6.697651259067357,
+          "median": 2.464,
+          "std": 8.56277139382914,
+          "count": 193
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.6674861882057742,
+        "TOPs_per_Watt": 0.7707494036528373,
+        "G3Dmark": 0.80449162523862,
+        "powerPerformance": 0.8874025302007836,
+        "GFLOPS_per_Watt": 0.770752199876585
+      }
+    },
+    "GCN": {
+      "count": 635,
+      "manufacturers": [
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 567617007874.0157,
+          "median": 321200000000.0,
+          "std": 691126238515.9209,
+          "count": 635
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.006013565354330709,
+          "median": 0.00436,
+          "std": 0.005296188223654355,
+          "count": 635
+        },
+        "G3Dmark": {
+          "mean": 1419.0425196850395,
+          "median": 803.0,
+          "std": 1727.8155962898024,
+          "count": 635
+        },
+        "powerPerformance": {
+          "mean": 15.033904667716534,
+          "median": 10.9,
+          "std": 13.240462236062061,
+          "count": 635
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 6.013561862992126,
+          "median": 4.36,
+          "std": 5.296184897090827,
+          "count": 635
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.5421108713928249,
+        "TOPs_per_Watt": 0.6920289753549762,
+        "G3Dmark": 0.673049965720461,
+        "powerPerformance": 0.8084530039558488,
+        "GFLOPS_per_Watt": 0.6920285717654
+      }
+    },
+    "Kepler": {
+      "count": 74,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 936724324324.3243,
+          "median": 708800000000.0,
+          "std": 1039539359894.605,
+          "count": 74
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.008004175675675677,
+          "median": 0.0094095,
+          "std": 0.007361500320499571,
+          "count": 74
+        },
+        "G3Dmark": {
+          "mean": 2309.810810810811,
+          "median": 1772.0,
+          "std": 2511.5033247078354,
+          "count": 74
+        },
+        "powerPerformance": {
+          "mean": 19.88252543243243,
+          "median": 23.5233335,
+          "std": 18.28433342758405,
+          "count": 74
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 8.004210202702703,
+          "median": 9.409333499999999,
+          "std": 7.3614854015924,
+          "count": 74
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.894632177454105,
+        "TOPs_per_Watt": 0.9211043973123246,
+        "G3Dmark": 1.0955401726665799,
+        "powerPerformance": 1.069189127332681,
+        "GFLOPS_per_Watt": 0.9211083681993291
+      }
+    },
+    "Fermi": {
+      "count": 21,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 1007552380952.381,
+          "median": 944000000000.0,
+          "std": 337033552660.63293,
+          "count": 21
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.007300666666666668,
+          "median": 0.006752,
+          "std": 0.0026234372173416566,
+          "count": 21
+        },
+        "G3Dmark": {
+          "mean": 2591.7619047619046,
+          "median": 2360.0,
+          "std": 924.6249458435515,
+          "count": 21
+        },
+        "powerPerformance": {
+          "mean": 18.55486852380952,
+          "median": 17.817352,
+          "std": 6.3672493394782865,
+          "count": 21
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 7.300610714285716,
+          "median": 6.752,
+          "std": 2.6234096542927707,
+          "count": 21
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.9622775421367263,
+        "TOPs_per_Watt": 0.8401459990957172,
+        "G3Dmark": 1.229269198743085,
+        "powerPerformance": 0.9977939549059321,
+        "GFLOPS_per_Watt": 0.8401395580070605
+      }
+    },
+    "RDNA 3": {
+      "count": 9,
+      "manufacturers": [
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 577822222222.2222,
+          "median": 357200000000.0,
+          "std": 497473983686.02594,
+          "count": 9
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.0033973333333333334,
+          "median": 0.001786,
+          "std": 0.0028627175899833355,
+          "count": 9
+        },
+        "G3Dmark": {
+          "mean": 1444.5555555555557,
+          "median": 893.0,
+          "std": 1243.684959215065,
+          "count": 9
+        },
+        "powerPerformance": {
+          "mean": 8.493220666666666,
+          "median": 4.465,
+          "std": 7.156704780780328,
+          "count": 9
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 3.3972882222222225,
+          "median": 1.786,
+          "std": 2.8626818771299836,
+          "count": 9
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.5518575096476896,
+        "TOPs_per_Watt": 0.39095826969151437,
+        "G3Dmark": 0.6851507644490905,
+        "powerPerformance": 0.4567256420064476,
+        "GFLOPS_per_Watt": 0.3909530773713665
+      }
+    },
+    "Gen9/Gen11": {
+      "count": 134,
+      "manufacturers": [
+        "Intel"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 194611940298.50748,
+          "median": 86800000000.0,
+          "std": 242514401105.53302,
+          "count": 134
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.001997634328358209,
+          "median": 0.000982,
+          "std": 0.0024315973138778176,
+          "count": 134
+        },
+        "G3Dmark": {
+          "mean": 486.52985074626866,
+          "median": 217.0,
+          "std": 606.2860027638326,
+          "count": 134
+        },
+        "powerPerformance": {
+          "mean": 4.994092037313433,
+          "median": 2.455,
+          "std": 6.079002494319138,
+          "count": 134
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 1.997636813432836,
+          "median": 0.982,
+          "std": 2.43160099551636,
+          "count": 134
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.1858669614813385,
+        "TOPs_per_Watt": 0.2298837305213783,
+        "G3Dmark": 0.23076045631066616,
+        "powerPerformance": 0.2685588873174141,
+        "GFLOPS_per_Watt": 0.22988401589637397
+      }
+    },
+    "VLIW5": {
+      "count": 80,
+      "manufacturers": [
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 294425000000.0,
+          "median": 168000000000.0,
+          "std": 295480237082.4978,
+          "count": 80
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.0036292000000000004,
+          "median": 0.0030299999999999997,
+          "std": 0.0027990738224082513,
+          "count": 80
+        },
+        "G3Dmark": {
+          "mean": 736.0625,
+          "median": 420.0,
+          "std": 738.7005927062445,
+          "count": 80
+        },
+        "powerPerformance": {
+          "mean": 9.07302765,
+          "median": 7.574999999999999,
+          "std": 6.997637084282547,
+          "count": 80
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 3.6292111,
+          "median": 3.0300000000000002,
+          "std": 2.7990548448361543,
+          "count": 80
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.28119487452930336,
+        "TOPs_per_Watt": 0.4176410181606488,
+        "G3Dmark": 0.3491134575044826,
+        "powerPerformance": 0.48790494690100294,
+        "GFLOPS_per_Watt": 0.41764229443188894
+      }
+    },
+    "Xe": {
+      "count": 15,
+      "manufacturers": [
+        "Intel"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 502826666666.6667,
+          "median": 442800000000.0,
+          "std": 350483240819.3551,
+          "count": 15
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.005028266666666668,
+          "median": 0.004428,
+          "std": 0.0035048324081935513,
+          "count": 15
+        },
+        "G3Dmark": {
+          "mean": 1257.0666666666666,
+          "median": 1107.0,
+          "std": 876.2081020483879,
+          "count": 15
+        },
+        "powerPerformance": {
+          "mean": 12.570666666666664,
+          "median": 11.07,
+          "std": 8.762081020483878,
+          "count": 15
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 5.028266666666667,
+          "median": 4.428,
+          "std": 3.5048324081935514,
+          "count": 15
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.48023191455658043,
+        "TOPs_per_Watt": 0.5786427891132808,
+        "G3Dmark": 0.5962250356642742,
+        "powerPerformance": 0.6759915971941524,
+        "GFLOPS_per_Watt": 0.5786427875970216
+      }
+    },
+    "Unknown": {
+      "count": 532,
+      "manufacturers": [
+        "NVIDIA",
+        "AMD"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 105142293233.0827,
+          "median": 39200000000.0,
+          "std": 147318148349.58136,
+          "count": 532
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.0016338101503759399,
+          "median": 0.00043400000000000003,
+          "std": 0.002522219626687013,
+          "count": 532
+        },
+        "G3Dmark": {
+          "mean": 262.15225563909775,
+          "median": 98.0,
+          "std": 366.17344502363477,
+          "count": 532
+        },
+        "powerPerformance": {
+          "mean": 4.081535005639098,
+          "median": 1.085,
+          "std": 6.304740550493808,
+          "count": 532
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 1.633806347744361,
+          "median": 0.434,
+          "std": 2.52222097854298,
+          "count": 532
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.10041767497121479,
+        "TOPs_per_Watt": 0.18801557772627855,
+        "G3Dmark": 0.12433846359346441,
+        "powerPerformance": 0.21948584276616073,
+        "GFLOPS_per_Watt": 0.18801513963443447
+      }
+    },
+    "Tesla (Legacy)": {
+      "count": 38,
+      "manufacturers": [
+        "NVIDIA"
+      ],
+      "performance_stats": {
+        "FP32_Final": {
+          "mean": 159263157894.73685,
+          "median": 142800000000.0,
+          "std": 145134108385.2628,
+          "count": 38
+        },
+        "TOPs_per_Watt": {
+          "mean": 0.002993815789473684,
+          "median": 0.0016855,
+          "std": 0.0038170184901750934,
+          "count": 38
+        },
+        "G3Dmark": {
+          "mean": 398.1578947368421,
+          "median": 357.0,
+          "std": 362.835270963157,
+          "count": 38
+        },
+        "powerPerformance": {
+          "mean": 7.484429131578946,
+          "median": 4.2139310000000005,
+          "std": 9.542463292510355,
+          "count": 38
+        },
+        "GFLOPS_per_Watt": {
+          "mean": 2.9937716315789475,
+          "median": 1.6855725000000001,
+          "std": 3.816985355166911,
+          "count": 38
+        }
+      },
+      "relative_performance": {
+        "FP32_Final": 0.15210659319470549,
+        "TOPs_per_Watt": 0.34452228438807886,
+        "G3Dmark": 0.18884575598442355,
+        "powerPerformance": 0.4024775564336945,
+        "GFLOPS_per_Watt": 0.3445172018838285
+      }
+    }
+  },
+  "validation_results": {},
+  "performance_metrics": {}
+}
