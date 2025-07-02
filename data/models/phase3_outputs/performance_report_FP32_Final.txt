@@ -1,0 +1,32 @@
+================================================================================
+PERFORMANCE PREDICTION REPORT - FP32_FINAL
+================================================================================
+
+📊 MODEL PERFORMANCE:
+
+🔸 Random Forest:
+   Test R² Score: 0.9999
+   Test RMSE:     1.41e+10
+   Test MAPE:     0.44%
+
+🔸 Xgboost:
+   Test R² Score: 0.9997
+   Test RMSE:     3.14e+10
+   Test MAPE:     11.30%
+
+🏆 BEST MODEL: Random Forest
+   R² Score: 0.9999
+
+🔍 TOP 10 FEATURES:
+   Throughput_EfficientNet_B0_fps 0.1592
+   Throughput_GPT2_Small_fps      0.1459
+   Throughput_BERT_Base_fps       0.1397
+   Throughput_ResNet50_ImageNet_fps 0.1327
+   Throughput_MobileNetV2_fps     0.1222
+   Avg_Throughput_fps             0.1131
+   Relative_Latency_Index         0.1073
+   FP32_Final_Architecture_Normalized 0.0232
+   Total_Bias_Correction          0.0189
+   OpenCL                         0.0116
+
+================================================================================

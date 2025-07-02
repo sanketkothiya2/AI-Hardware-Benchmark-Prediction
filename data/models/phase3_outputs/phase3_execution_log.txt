@@ -1,0 +1,10 @@
+[2025-07-02 10:58:29] START: Starting Phase 3 Complete Pipeline Execution
+[2025-07-02 10:58:29] INFO: Starting Performance Prediction Models...
+[2025-07-02 10:58:31] SUCCESS: Performance Prediction Models completed successfully
+[2025-07-02 10:58:31] INFO: Starting Efficiency Prediction Models...
+[2025-07-02 10:58:34] SUCCESS: Efficiency Prediction Models completed successfully
+[2025-07-02 10:58:34] INFO: Starting Classification Models...
+[2025-07-02 10:58:34] ERROR: Classification Models failed: Invalid classes inferred from unique values of `y`.  Expected: [0 1 2 3 4 5], got ['AI_Basic' 'AI_Entry' 'AI_Flagship' 'AI_High_End' 'AI_Legacy'
+ 'AI_Mid_Range']
+[2025-07-02 10:58:34] CRITICAL: Pipeline execution failed: Invalid classes inferred from unique values of `y`.  Expected: [0 1 2 3 4 5], got ['AI_Basic' 'AI_Entry' 'AI_Flagship' 'AI_High_End' 'AI_Legacy'
+ 'AI_Mid_Range']

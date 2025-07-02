@@ -1,0 +1,32 @@
+================================================================================
+PERFORMANCE PREDICTION REPORT - BIAS_CORRECTED_PERFORMANCE
+================================================================================
+
+📊 MODEL PERFORMANCE:
+
+🔸 Random Forest:
+   Test R² Score: 0.9819
+   Test RMSE:     1.62e+11
+   Test MAPE:     4.15%
+
+🔸 Xgboost:
+   Test R² Score: 0.9946
+   Test RMSE:     8.84e+10
+   Test MAPE:     29.21%
+
+🏆 BEST MODEL: Xgboost
+   R² Score: 0.9946
+
+🔍 TOP 10 FEATURES:
+   Throughput_EfficientNet_B0_fps 0.1324
+   Throughput_GPT2_Small_fps      0.1262
+   Throughput_MobileNetV2_fps     0.1205
+   Throughput_BERT_Base_fps       0.1015
+   Avg_Throughput_fps             0.0973
+   Throughput_ResNet50_ImageNet_fps 0.0967
+   Relative_Latency_Index         0.0904
+   Total_Bias_Correction          0.0736
+   OpenCL                         0.0444
+   INT8_Performance_Estimated     0.0383
+
+================================================================================

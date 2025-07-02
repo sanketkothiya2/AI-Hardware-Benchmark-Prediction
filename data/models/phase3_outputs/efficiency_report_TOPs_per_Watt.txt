@@ -1,0 +1,39 @@
+================================================================================
+EFFICIENCY PREDICTION REPORT - TOPS_PER_WATT
+================================================================================
+
+⚡ MODEL PERFORMANCE (Power Efficiency):
+
+🔸 Random Forest:
+   Test R² Score:      0.9391
+   Test RMSE:          0.0034
+   Test MAPE:          1.00%
+   Test Median APE:    0.19%
+
+🔸 Xgboost:
+   Test R² Score:      0.9387
+   Test RMSE:          0.0034
+   Test MAPE:          37.51%
+   Test Median APE:    0.95%
+
+🏆 BEST EFFICIENCY MODEL: Random Forest
+   R² Score: 0.9391
+
+🔍 TOP 10 EFFICIENCY FEATURES:
+   FLOPS_per_Watt                 0.9481
+   powerPerformance               0.0250
+   Compute_Usage_Percent          0.0217
+   AI_Efficiency_Tier             0.0038
+   FP16_Performance_Predicted     0.0003
+   Relative_Latency_Index         0.0002
+   Category                       0.0001
+   Process size (nm)              0.0001
+   INT8_Performance_Estimated     0.0001
+   MemoryTier                     0.0001
+
+💡 EFFICIENCY INSIGHTS:
+   - Higher R² indicates better power efficiency prediction
+   - Lower MAPE shows more accurate efficiency forecasting
+   - Median APE provides robust efficiency error measurement
+
+================================================================================

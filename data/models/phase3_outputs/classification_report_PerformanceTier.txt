@@ -1,0 +1,34 @@
+================================================================================
+CLASSIFICATION REPORT - PERFORMANCETIER
+================================================================================
+
+🎯 MODEL PERFORMANCE:
+
+🔸 Random Forest:
+   Test Accuracy:    0.9937
+   Test Precision:   0.9941
+   Test Recall:      0.9937
+   Test F1-Score:    0.9938
+
+🔸 Xgboost:
+   Test Accuracy:    0.9968
+   Test Precision:   0.9969
+   Test Recall:      0.9968
+   Test F1-Score:    0.9969
+
+🏆 BEST MODEL: Xgboost
+   F1-Score: 0.9969
+
+🔍 TOP 10 FEATURES:
+   G3Dmark                        0.1901
+   Relative_Latency_Index         0.0955
+   Throughput_GPT2_Small_fps      0.0793
+   Throughput_BERT_Base_fps       0.0670
+   Throughput_ResNet50_ImageNet_fps 0.0646
+   Throughput_MobileNetV2_fps     0.0644
+   Throughput_EfficientNet_B0_fps 0.0633
+   Avg_Throughput_fps             0.0553
+   FP32_Final_Architecture_Normalized 0.0552
+   Vulkan                         0.0417
+
+================================================================================

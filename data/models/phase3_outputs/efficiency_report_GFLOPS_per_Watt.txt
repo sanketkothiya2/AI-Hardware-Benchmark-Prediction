@@ -1,0 +1,39 @@
+================================================================================
+EFFICIENCY PREDICTION REPORT - GFLOPS_PER_WATT
+================================================================================
+
+⚡ MODEL PERFORMANCE (Power Efficiency):
+
+🔸 Random Forest:
+   Test R² Score:      0.9391
+   Test RMSE:          3.3802
+   Test MAPE:          0.99%
+   Test Median APE:    0.20%
+
+🔸 Xgboost:
+   Test R² Score:      0.9388
+   Test RMSE:          3.3899
+   Test MAPE:          8.28%
+   Test Median APE:    0.86%
+
+🏆 BEST EFFICIENCY MODEL: Random Forest
+   R² Score: 0.9391
+
+🔍 TOP 10 EFFICIENCY FEATURES:
+   FLOPS_per_Watt                 0.9391
+   Compute_Usage_Percent          0.0305
+   powerPerformance               0.0270
+   AI_Efficiency_Tier             0.0021
+   FP16_Performance_Predicted     0.0003
+   INT8_Performance_Estimated     0.0002
+   Category                       0.0001
+   EfficiencyClass                0.0001
+   PricePerformanceIndex          0.0001
+   Relative_Latency_Index         0.0001
+
+💡 EFFICIENCY INSIGHTS:
+   - Higher R² indicates better power efficiency prediction
+   - Lower MAPE shows more accurate efficiency forecasting
+   - Median APE provides robust efficiency error measurement
+
+================================================================================
