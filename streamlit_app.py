@@ -64,21 +64,21 @@ st.markdown("""
         margin: 0.5rem 0;
     }
     
-    /* Professional sidebar styling */
+    /* Modern Light Sidebar Theme */
     .css-1d391kg {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         border-right: 3px solid #4facfe;
     }
     
     /* Sidebar content container */
     .sidebar .sidebar-content {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         padding: 0;
     }
     
-    /* Sidebar header styling */
+    /* Sidebar header styling - Vibrant */
     .sidebar-header {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         padding: 1.5rem 1rem;
         text-align: center;
@@ -87,7 +87,8 @@ st.markdown("""
         font-size: 1.2rem;
         margin-bottom: 0;
         border-radius: 0 0 15px 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255,255,255,0.2);
     }
     
     .sidebar-header small {
@@ -99,74 +100,143 @@ st.markdown("""
         text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     }
     
-    /* Navigation section styling */
+    /* Navigation section styling - Light with colored accents */
     .nav-section {
-        background: rgba(255,255,255,0.15);
+        background: white;
         margin: 1rem;
         border-radius: 15px;
         padding: 1rem;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.3);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 1px solid #e9ecef;
+        border-left: 4px solid #4facfe;
     }
     
     /* Navigation title */
     .nav-title {
-        color: #ffffff;
+        color: #2d3748;
         font-family: 'Inter', sans-serif;
         font-weight: 700;
         font-size: 0.9rem;
         margin-bottom: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1px;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     
-    /* Radio button styling */
+    /* Tech Stack content styling */
+    .tech-content {
+        color: #4a5568 !important;
+        font-size: 0.8rem;
+        line-height: 1.6;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+    }
+    
+    .tech-content div {
+        color: #4a5568 !important;
+        margin-bottom: 0.3rem;
+        padding: 0.2rem 0;
+    }
+    
+    /* Performance section styling */
+    .performance-content {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+    
+    .performance-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 0;
+    }
+    
+    .performance-label {
+        color: #4a5568 !important;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .performance-value {
+        font-weight: 700;
+        color: #667eea !important;
+        font-size: 0.9rem;
+    }
+    
+    /* Radio button styling - Light Theme */
     .stRadio > div {
         background: transparent;
     }
     
     .stRadio label {
-        color: white !important;
+        color: #2d3748 !important;
         font-family: 'Inter', sans-serif;
         font-weight: 500;
         padding: 0.5rem 0;
         transition: all 0.3s ease;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     }
     
     .stRadio label:hover {
-        background: rgba(255,255,255,0.2);
+        background: rgba(79, 172, 254, 0.1);
         border-radius: 8px;
         padding-left: 0.8rem;
         transform: translateX(5px);
+        color: #667eea !important;
     }
     
     /* Ensure radio button text is always visible */
     .stRadio > div > label > div {
-        color: white !important;
+        color: #2d3748 !important;
         font-weight: 500 !important;
     }
     
     .stRadio > div > label > div:first-child {
-        color: white !important;
+        color: #2d3748 !important;
     }
     
     /* Override any default Streamlit radio styling */
     .stRadio div[role="radiogroup"] > label {
-        color: white !important;
+        color: #2d3748 !important;
         background: transparent !important;
     }
     
     .stRadio div[role="radiogroup"] > label:hover {
-        background: rgba(255,255,255,0.2) !important;
+        background: rgba(79, 172, 254, 0.1) !important;
         border-radius: 8px !important;
+        color: #667eea !important;
     }
     
-    /* Quick stats section */
+    /* Dividers */
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.3), transparent);
+        margin: 1rem 0;
+    }
+    
+    /* Footer styling */
+    .sidebar-footer {
+        margin-top: 2rem;
+        text-align: center;
+        padding: 1rem;
+        background: white;
+        border-radius: 15px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 1px solid #e9ecef;
+    }
+    
+    .footer-text {
+        color: #4a5568 !important;
+        font-size: 0.7rem;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+    }
+    
+    /* Quick stats section - Colorful Theme */
     .stats-container {
-        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         margin: 1rem;
         border-radius: 15px;
         padding: 1.5rem;
@@ -175,7 +245,7 @@ st.markdown("""
     }
     
     .stats-title {
-        color: #2d3748;
+        color: white;
         font-family: 'Inter', sans-serif;
         font-weight: 700;
         font-size: 1rem;
@@ -183,9 +253,10 @@ st.markdown("""
         text-align: center;
         text-transform: uppercase;
         letter-spacing: 1px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     
-    /* Metric styling */
+    /* Metric styling - Colorful */
     [data-testid="metric-container"] {
         background: white;
         border-radius: 12px;
@@ -194,18 +265,20 @@ st.markdown("""
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         border-left: 4px solid #4facfe;
         transition: transform 0.3s ease;
+        border: 1px solid #e9ecef;
     }
     
     [data-testid="metric-container"]:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        border-left: 4px solid #667eea;
     }
     
     [data-testid="metric-container"] [data-testid="metric-value"] {
         font-family: 'Inter', sans-serif;
         font-weight: 700;
         font-size: 1.8rem;
-        color: #1f77b4;
+        color: #667eea;
     }
     
     [data-testid="metric-container"] [data-testid="metric-label"] {
@@ -215,7 +288,7 @@ st.markdown("""
         font-size: 0.9rem;
     }
     
-    /* Project info section */
+    /* Project info section - Warm Theme */
     .project-info {
         background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         margin: 1rem;
@@ -227,142 +300,109 @@ st.markdown("""
     }
     
     .project-version {
-        color: #744210;
+        color: #744210 !important;
         font-family: 'Inter', sans-serif;
         font-weight: 600;
-        font-size: 0.85rem;
-        margin: 0.2rem 0;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
     }
     
     .project-status {
-        display: inline-block;
-        background: #48bb78;
+        color: #744210 !important;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .status-badge {
+        background: linear-gradient(45deg, #48bb78, #38a169);
         color: white;
         padding: 0.3rem 0.8rem;
         border-radius: 20px;
         font-size: 0.7rem;
-        font-weight: 500;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
         margin-top: 0.5rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 8px rgba(72,187,120,0.3);
     }
     
-    /* Tech stack and performance sections */
-    .tech-content {
-        color: #ffffff !important;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
-        line-height: 1.6;
-        font-weight: 500;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-    
-    .tech-content div {
-        color: #ffffff !important;
-        margin-bottom: 0.3rem;
-        padding: 0.2rem 0;
-    }
-    
-    .performance-content {
-        color: #ffffff !important;
-        font-family: 'Inter', sans-serif;
-        text-align: center;
-        padding: 0.5rem;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-    
-    .performance-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
-        align-items: center;
-    }
-    
-    .performance-label {
-        font-size: 0.85rem;
-        color: #ffffff !important;
-        font-weight: 500;
-    }
-    
-    .performance-value {
-        font-weight: 700;
-        color: #4facfe !important;
-        font-size: 0.9rem;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    }
-    
-    /* Dividers */
-    hr {
-        border: none;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        margin: 1rem 0;
-    }
-    
-    /* Footer styling */
-    .sidebar-footer {
-        margin-top: 2rem;
-        text-align: center;
-        padding: 1rem;
-        background: rgba(255,255,255,0.1);
+    /* Special sections with gradients */
+    .ml-models-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 1rem;
         border-radius: 15px;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        backdrop-filter: blur(10px);
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        border: 2px solid rgba(255,255,255,0.3);
     }
     
-    .footer-text {
-        color: rgba(255,255,255,0.8) !important;
-        font-size: 0.7rem;
+    .ml-models-title {
+        color: white;
         font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .ml-models-count {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #4facfe;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        margin-bottom: 0.5rem;
+    }
+    
+    .ml-models-label {
+        font-size: 0.9rem;
+        color: white !important;
         font-weight: 500;
+        margin-bottom: 0.8rem;
         text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
     
-    .footer-copyright {
-        color: rgba(255,255,255,0.6) !important;
-        font-size: 0.6rem;
-        margin-top: 0.3rem;
+    .tech-stack-section {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        margin: 1rem;
+        border-radius: 15px;
+        padding: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .tech-stack-title {
+        color: #2d3748;
         font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
     
-    /* Scrollbar styling for sidebar */
-    .css-1d391kg::-webkit-scrollbar {
-        width: 6px;
+    .performance-section {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        margin: 1rem;
+        border-radius: 15px;
+        padding: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 2px solid rgba(255,255,255,0.3);
     }
     
-    .css-1d391kg::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.1);
-        border-radius: 3px;
-    }
-    
-    .css-1d391kg::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,0.3);
-        border-radius: 3px;
-    }
-    
-    .css-1d391kg::-webkit-scrollbar-thumb:hover {
-        background: rgba(255,255,255,0.5);
-    }
-    
-    /* Hide default sidebar elements */
-    .css-1d391kg .css-1aumxhk {
-        background: transparent;
-    }
-    
-    /* Animation for page load */
-    @keyframes slideInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    .css-1d391kg {
-        animation: slideInLeft 0.5s ease-out;
+    .performance-title {
+        color: #744210;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -527,43 +567,23 @@ def main():
             
             st.markdown('</div>', unsafe_allow_html=True)
         
-        # Model Status Section
+        # Model Status Section - Using ML Models Section styling
         models_loaded = len(st.session_state.models) if st.session_state.models else 0
         st.markdown(f"""
-        <div class="nav-section">
-            <div class="nav-title">🧠 ML Models Status</div>
-            <div class="performance-content">
-                <div style="font-size: 2.5rem; font-weight: bold; color: #4facfe; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-bottom: 0.5rem;">
-                    {models_loaded}
-                </div>
-                <div style="font-size: 0.9rem; color: #ffffff !important; font-weight: 500; margin-bottom: 0.8rem; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
-                    Models Loaded
-                </div>
-                <div style="margin-top: 0.5rem;">
-                    <span style="background: #48bb78; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.75rem; color: white; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-                        ✓ Active
-                    </span>
-                </div>
+        <div class="ml-models-section">
+            <div class="ml-models-title">🧠 ML Models Status</div>
+            <div class="ml-models-count">{models_loaded}</div>
+            <div class="ml-models-label">Models Loaded</div>
+            <div style="margin-top: 0.5rem;">
+                <span class="status-badge">✓ Active</span>
             </div>
         </div>
         """, unsafe_allow_html=True)
         
-        # Project Information
+        # Technical Stack - Using Tech Stack Section styling
         st.markdown("""
-        <div class="project-info">
-            <div style="font-weight: 600; color: #744210; margin-bottom: 0.5rem;">
-                🎯 Project Info
-            </div>
-            <div class="project-version">Version 3.0</div>
-            <div class="project-version">Phase 3 Complete</div>
-            <div class="project-status">Production Ready</div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Technical Stack
-        st.markdown("""
-        <div class="nav-section">
-            <div class="nav-title">⚙️ Tech Stack</div>
+        <div class="tech-stack-section">
+            <div class="tech-stack-title">⚙️ Tech Stack</div>
             <div class="tech-content">
                 <div>• Streamlit Framework</div>
                 <div>• Machine Learning (RF, XGBoost)</div>
@@ -574,15 +594,15 @@ def main():
         </div>
         """, unsafe_allow_html=True)
         
-        # Performance Metrics
+        # Performance Metrics - Using Performance Section styling
         if st.session_state.data is not None and st.session_state.models:
             st.markdown("""
-            <div class="nav-section">
-                <div class="nav-title">🎯 Performance</div>
+            <div class="performance-section">
+                <div class="performance-title">🎯 Performance</div>
                 <div class="performance-content">
                     <div class="performance-row">
                         <span class="performance-label">Accuracy:</span>
-                        <span class="performance-value">92.5%</span>
+                        <span class="performance-value">82.5%</span>
                     </div>
                     <div class="performance-row">
                         <span class="performance-label">Dataset:</span>
@@ -596,14 +616,24 @@ def main():
             </div>
             """, unsafe_allow_html=True)
         
+        # Project Information
+        st.markdown("""
+        <div class="project-info">
+            <div class="nav-title" style="text-align: center; margin-bottom: 1rem;">
+                🎯 Project Info
+            </div>
+            <div class="project-version">Version 3.0</div>
+            <div class="project-status">Phase 3 Complete</div>
+            <div class="status-badge">Production Ready</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
         # Footer
         st.markdown("""
         <div class="sidebar-footer">
             <div class="footer-text">
-                Built with ❤️ for AI Hardware Analysis
-            </div>
-            <div class="footer-copyright">
-                © 2024 AI Benchmark KPI Dashboard
+                Built with ❤️ by Georgina Oteng<br>
+                AI Benchmark Analysis
             </div>
         </div>
         """, unsafe_allow_html=True)
