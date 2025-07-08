@@ -23,7 +23,8 @@ def show_visualizations():
     # Main content area controls
     st.markdown("### 🎛️ Select Visualization Type")
     
-    col1, col2 = st.columns([1, 3])
+    # Better column layout for alignment
+    col1, col2 = st.columns([2, 3])
     
     with col1:
         viz_type = st.selectbox(
@@ -43,11 +44,12 @@ def show_visualizations():
                 "🎨 3D Performance Space",
                 "⚙️ Engineering Insights",
                 "🚀 Benchmark Comparison"
-            ]
+            ],
+            key="viz_selector"
         )
     
     with col2:
-        # Description of selected visualization
+        # Description of selected visualization with better styling
         descriptions = {
             "🔗 Correlation Analysis": "Analyze relationships between different GPU performance metrics",
             "📊 Performance Distributions": "Explore statistical distributions of performance metrics",
@@ -64,7 +66,24 @@ def show_visualizations():
             "⚙️ Engineering Insights": "Thermal design and architectural analysis",
             "🚀 Benchmark Comparison": "Multi-benchmark radar charts and correlation analysis"
         }
-        st.info(f"**{viz_type}**: {descriptions.get(viz_type, 'Advanced visualization analysis')}")
+        
+        # Better aligned description with consistent height
+        st.markdown(
+            f"""
+            <div style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 1rem;
+                border-radius: 10px;
+                color: white;
+                margin-top: 1.7rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            ">
+                <strong style="font-size: 1.1rem;">{viz_type}</strong><br>
+                <span style="font-size: 0.9rem; opacity: 0.9;">{descriptions.get(viz_type, 'Advanced visualization analysis')}</span>
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
     
     st.markdown("---")
     
@@ -324,54 +343,198 @@ def show_architecture_comparison(df):
     """Show architecture comparison"""
     st.markdown("### 🏗️ Architecture Comparison")
     
+    # Check for required columns
+    required_cols = ['Architecture', 'FP32_Final', 'TDP', 'GFLOPS_per_Watt']
+    missing_cols = [col for col in required_cols if col not in df.columns]
+    
+    if missing_cols:
+        st.error(f"Missing required columns: {missing_cols}")
+        return
+    
     # Performance metrics by architecture
-    arch_performance = df.groupby('Architecture').agg({
-        'FP32_Final': ['mean', 'std', 'count'],
-        'TDP': ['mean', 'std'],
-        'GFLOPS_per_Watt': ['mean', 'std'],
-        'price': ['mean', 'std']
-    }).round(2)
-    
-    # Flatten column names
-    arch_performance.columns = ['_'.join(col).strip() for col in arch_performance.columns]
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown("#### Performance by Architecture")
-        st.dataframe(arch_performance)
-    
-    with col2:
-        # Radar chart for top architectures
-        top_archs = df['Architecture'].value_counts().head(5).index
-        arch_means = df[df['Architecture'].isin(top_archs)].groupby('Architecture')[
-            ['FP32_Final', 'GFLOPS_per_Watt', 'TDP']
-        ].mean()
+    try:
+        arch_performance = df.groupby('Architecture').agg({
+            'FP32_Final': ['mean', 'std', 'count'],
+            'TDP': ['mean', 'std'],
+            'GFLOPS_per_Watt': ['mean', 'std'],
+            'price': ['mean', 'std'] if 'price' in df.columns else ['count']
+        }).round(2)
         
-        # Normalize for radar chart
-        arch_norm = arch_means.div(arch_means.max())
+        # Flatten column names with better formatting
+        arch_performance.columns = ['_'.join(col).strip() for col in arch_performance.columns]
         
-        fig = go.Figure()
+        # Reset index to make Architecture a column
+        arch_performance_display = arch_performance.reset_index()
         
-        for arch in arch_norm.index:
-            fig.add_trace(go.Scatterpolar(
-                r=arch_norm.loc[arch].values,
-                theta=arch_norm.columns,
-                fill='toself',
-                name=arch
-            ))
+        # Rename columns for better readability
+        column_mapping = {
+            'FP32_Final_mean': 'Performance (GFLOPS)',
+            'FP32_Final_std': 'Perf Std Dev',
+            'FP32_Final_count': 'GPU Count',
+            'TDP_mean': 'Avg TDP (W)',
+            'TDP_std': 'TDP Std Dev',
+            'GFLOPS_per_Watt_mean': 'Efficiency (GFLOPS/W)',
+            'GFLOPS_per_Watt_std': 'Eff Std Dev',
+            'price_mean': 'Avg Price ($)',
+            'price_std': 'Price Std Dev'
+        }
         
-        fig.update_layout(
-            polar=dict(
-                radialaxis=dict(
-                    visible=True,
-                    range=[0, 1]
-                )),
-            showlegend=True,
-            title="Architecture Performance Radar"
-        )
+        # Apply column renaming
+        arch_performance_display = arch_performance_display.rename(columns=column_mapping)
         
-        st.plotly_chart(fig, use_container_width=True)
+        # Format numeric columns for better display
+        numeric_columns = arch_performance_display.select_dtypes(include=[np.number]).columns
+        for col in numeric_columns:
+            if 'Price' in col:
+                arch_performance_display[col] = arch_performance_display[col].apply(lambda x: f"${x:,.0f}" if pd.notna(x) else "N/A")
+            elif col == 'GPU Count':
+                arch_performance_display[col] = arch_performance_display[col].apply(lambda x: f"{int(x)}" if pd.notna(x) else "0")
+            else:
+                arch_performance_display[col] = arch_performance_display[col].apply(lambda x: f"{x:,.1f}" if pd.notna(x) else "N/A")
+        
+        # Filter out architectures with very few GPUs
+        min_gpu_count = 3
+        arch_performance_filtered = arch_performance_display[
+            arch_performance_display['GPU Count'].apply(lambda x: int(x.replace(',', '')) if x != "N/A" else 0) >= min_gpu_count
+        ].copy()
+        
+        # Sort by performance
+        if 'Performance (GFLOPS)' in arch_performance_filtered.columns:
+            # Extract numeric values for sorting
+            arch_performance_filtered['_sort_key'] = arch_performance_filtered['Performance (GFLOPS)'].apply(
+                lambda x: float(x.replace(',', '')) if x != "N/A" else 0
+            )
+            arch_performance_filtered = arch_performance_filtered.sort_values('_sort_key', ascending=False)
+            arch_performance_filtered = arch_performance_filtered.drop('_sort_key', axis=1)
+        
+        # Main layout with better proportions
+        col1, col2 = st.columns([3, 2])
+        
+        with col1:
+            st.markdown("#### Performance by Architecture")
+            st.markdown(f"*Showing architectures with {min_gpu_count}+ GPUs*")
+            
+            # Display with improved formatting
+            st.dataframe(
+                arch_performance_filtered,
+                use_container_width=True,
+                height=450,
+                hide_index=True
+            )
+        
+        with col2:
+            # Radar chart for top architectures
+            st.markdown("#### 🎯 Architecture Radar")
+            
+            try:
+                top_archs = df['Architecture'].value_counts().head(5).index
+                arch_subset = df[df['Architecture'].isin(top_archs)].copy()
+                
+                if len(arch_subset) > 0:
+                    arch_means = arch_subset.groupby('Architecture')[
+                        ['FP32_Final', 'GFLOPS_per_Watt', 'TDP']
+                    ].mean()
+                    
+                    # Invert TDP for radar (lower is better)
+                    arch_means['TDP_inverted'] = arch_means['TDP'].max() - arch_means['TDP']
+                    arch_means = arch_means.drop('TDP', axis=1)
+                    
+                    # Normalize for radar chart
+                    arch_norm = arch_means.div(arch_means.max())
+                    
+                    if len(arch_norm) > 0:
+                        fig = go.Figure()
+                        
+                        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
+                        
+                        for i, arch in enumerate(arch_norm.index):
+                            fig.add_trace(go.Scatterpolar(
+                                r=arch_norm.loc[arch].values,
+                                theta=['Performance', 'Efficiency', 'Power (inv)'],
+                                fill='toself',
+                                name=arch,
+                                line=dict(color=colors[i % len(colors)])
+                            ))
+                        
+                        fig.update_layout(
+                            polar=dict(
+                                radialaxis=dict(
+                                    visible=True,
+                                    range=[0, 1]
+                                )),
+                            showlegend=True,
+                            title="Top 5 Architectures",
+                            height=450,
+                            margin=dict(t=40, b=20, l=20, r=20)
+                        )
+                        
+                        st.plotly_chart(fig, use_container_width=True)
+                    else:
+                        st.info("Insufficient data for radar chart")
+                else:
+                    st.info("No architecture data available")
+                    
+            except Exception as e:
+                st.warning(f"Could not generate radar chart: {e}")
+                
+                # Fallback: Simple bar chart
+                try:
+                    if 'FP32_Final' in df.columns:
+                        arch_perf_simple = df.groupby('Architecture')['FP32_Final'].mean().sort_values(ascending=False).head(8)
+                        
+                        fig = px.bar(
+                            x=arch_perf_simple.index,
+                            y=arch_perf_simple.values,
+                            title="Average Performance by Architecture",
+                            labels={'x': 'Architecture', 'y': 'Performance (GFLOPS)'}
+                        )
+                        fig.update_layout(height=450, margin=dict(t=40, b=40, l=40, r=40))
+                        st.plotly_chart(fig, use_container_width=True)
+                except Exception as e2:
+                    st.error(f"Could not generate fallback chart: {e2}")
+        
+        # Architecture insights section - full width below the columns for better alignment
+        st.markdown("---")
+        st.markdown("### 📊 Architecture Insights")
+        
+        if len(arch_performance_filtered) > 0:
+            # Create four columns for better metric distribution
+            col_insight1, col_insight2, col_insight3, col_insight4 = st.columns(4)
+            
+            # Performance statistics
+            top_arch = arch_performance_filtered.iloc[0]['Architecture']
+            top_perf = arch_performance_filtered.iloc[0]['Performance (GFLOPS)']
+            
+            most_gpus_idx = arch_performance_filtered['GPU Count'].apply(lambda x: int(x.replace(',', ''))).idxmax()
+            most_gpus_arch = arch_performance_filtered.loc[most_gpus_idx, 'Architecture']
+            most_gpus_count = arch_performance_filtered.loc[most_gpus_idx, 'GPU Count']
+            
+            # Calculate additional insights
+            total_archs = len(arch_performance_filtered)
+            avg_efficiency = arch_performance_filtered['Efficiency (GFLOPS/W)'].apply(
+                lambda x: float(x.replace(',', '')) if x != "N/A" else 0
+            ).mean()
+            
+            with col_insight1:
+                st.metric("🏆 Top Performance", f"{top_arch}", f"{top_perf}")
+            
+            with col_insight2:
+                st.metric("📈 Most GPUs", f"{most_gpus_arch}", f"{most_gpus_count} GPUs")
+            
+            with col_insight3:
+                st.metric("🏗️ Architectures", f"{total_archs}", "Available")
+            
+            with col_insight4:
+                st.metric("⚡ Avg Efficiency", f"{avg_efficiency:.1f}", "GFLOPS/W")
+        
+    except Exception as e:
+        st.error(f"Error analyzing architecture data: {e}")
+        
+        # Provide basic fallback analysis
+        if 'Architecture' in df.columns:
+            st.markdown("#### Basic Architecture Summary")
+            arch_counts = df['Architecture'].value_counts()
+            st.bar_chart(arch_counts.head(10))
 
 def show_performance_efficiency(df):
     """Show performance vs efficiency analysis"""
@@ -465,46 +628,198 @@ def show_manufacturer_trends(df):
     """Show manufacturer trend analysis"""
     st.markdown("### 🏭 Manufacturer Trends")
     
-    # Performance by manufacturer over time
-    if 'testDate' in df.columns:
-        df['year'] = pd.to_datetime(df['testDate'], errors='coerce').dt.year
-        
-        yearly_performance = df.groupby(['year', 'Manufacturer'])['FP32_Final'].mean().reset_index()
-        
-        fig = px.line(
-            yearly_performance,
-            x='year',
-            y='FP32_Final',
-            color='Manufacturer',
-            title="Performance Trends by Manufacturer"
-        )
-        
-        st.plotly_chart(fig, use_container_width=True)
+    # Check for required columns
+    required_cols = ['Manufacturer', 'FP32_Final']
+    missing_cols = [col for col in required_cols if col not in df.columns]
     
-    # Market share analysis
+    if missing_cols:
+        st.error(f"Missing required columns: {missing_cols}")
+        return
+    
+    # Clean data - remove invalid manufacturers and performance values
+    df_clean = df.copy()
+    df_clean = df_clean.dropna(subset=['Manufacturer', 'FP32_Final'])
+    df_clean = df_clean[df_clean['Manufacturer'] != '']
+    df_clean = df_clean[df_clean['Manufacturer'] != 'Unknown']
+    df_clean = df_clean[df_clean['FP32_Final'] > 0]
+    
+    if len(df_clean) == 0:
+        st.warning("No valid manufacturer data available")
+        return
+    
+    # Performance by manufacturer over time (if date column exists)
+    try:
+        if 'testDate' in df_clean.columns:
+            st.markdown("#### 📈 Performance Trends Over Time")
+            
+            # Convert dates and extract year
+            df_clean['year'] = pd.to_datetime(df_clean['testDate'], errors='coerce').dt.year
+            df_year_clean = df_clean.dropna(subset=['year'])
+            
+            if len(df_year_clean) > 0 and len(df_year_clean['year'].unique()) > 1:
+                yearly_performance = df_year_clean.groupby(['year', 'Manufacturer'])['FP32_Final'].mean().reset_index()
+                
+                # Filter to manufacturers with data across multiple years
+                mfg_counts = yearly_performance.groupby('Manufacturer').size()
+                valid_mfgs = mfg_counts[mfg_counts >= 2].index
+                yearly_performance_filtered = yearly_performance[yearly_performance['Manufacturer'].isin(valid_mfgs)]
+                
+                if len(yearly_performance_filtered) > 0:
+                    fig = px.line(
+                        yearly_performance_filtered,
+                        x='year',
+                        y='FP32_Final',
+                        color='Manufacturer',
+                        title="Performance Trends by Manufacturer Over Time",
+                        labels={'FP32_Final': 'Performance (GFLOPS)', 'year': 'Year'},
+                        markers=True
+                    )
+                    fig.update_layout(height=400, margin=dict(t=40, b=40, l=40, r=40))
+                    st.plotly_chart(fig, use_container_width=True)
+                else:
+                    st.info("Insufficient temporal data for trend analysis")
+            else:
+                st.info("Insufficient date range for trend analysis")
+    except Exception as e:
+        st.warning(f"Could not generate trend analysis: {e}")
+    
+    # Market share and performance analysis
     col1, col2 = st.columns(2)
     
     with col1:
         st.markdown("#### 📊 Market Share")
-        market_share = df['Manufacturer'].value_counts()
-        
-        fig = px.pie(
-            values=market_share.values,
-            names=market_share.index,
-            title="GPU Database Distribution by Manufacturer"
-        )
-        st.plotly_chart(fig, use_container_width=True)
+        try:
+            # Get manufacturer counts
+            market_share = df_clean['Manufacturer'].value_counts()
+            
+            # Filter to show only manufacturers with at least 3 GPUs
+            market_share_filtered = market_share[market_share >= 3]
+            
+            if len(market_share_filtered) > 0:
+                # Create pie chart
+                fig = px.pie(
+                    values=market_share_filtered.values,
+                    names=market_share_filtered.index,
+                    title="GPU Database Distribution by Manufacturer",
+                    color_discrete_sequence=px.colors.qualitative.Set3
+                )
+                fig.update_layout(height=400, margin=dict(t=40, b=40, l=40, r=40))
+                fig.update_traces(textposition='inside', textinfo='percent+label')
+                st.plotly_chart(fig, use_container_width=True)
+                
+                # Show market share statistics
+                total_gpus = market_share_filtered.sum()
+                top_manufacturer = market_share_filtered.index[0]
+                top_share = market_share_filtered.iloc[0]
+                
+                st.metric(
+                    f"🏆 Market Leader", 
+                    f"{top_manufacturer}", 
+                    f"{top_share} GPUs ({top_share/total_gpus*100:.1f}%)"
+                )
+            else:
+                st.warning("No manufacturers with sufficient data (3+ GPUs)")
+                
+        except Exception as e:
+            st.error(f"Could not generate market share chart: {e}")
+            
+            # Fallback: Simple bar chart
+            try:
+                mfg_counts = df_clean['Manufacturer'].value_counts().head(8)
+                st.bar_chart(mfg_counts)
+            except Exception as e2:
+                st.error(f"Fallback chart also failed: {e2}")
     
     with col2:
         st.markdown("#### 📈 Performance Distribution")
+        try:
+            # Filter manufacturers with enough data points
+            mfg_counts = df_clean['Manufacturer'].value_counts()
+            valid_manufacturers = mfg_counts[mfg_counts >= 5].index
+            df_performance = df_clean[df_clean['Manufacturer'].isin(valid_manufacturers)]
+            
+            if len(df_performance) > 0:
+                # Create box plot
+                fig = px.box(
+                    df_performance,
+                    x='Manufacturer',
+                    y='FP32_Final',
+                    title="Performance Distribution by Manufacturer",
+                    labels={'FP32_Final': 'Performance (GFLOPS)'},
+                    color='Manufacturer',
+                    color_discrete_sequence=px.colors.qualitative.Set2
+                )
+                fig.update_layout(
+                    height=400, 
+                    margin=dict(t=40, b=40, l=40, r=40),
+                    xaxis={'categoryorder': 'total descending'}
+                )
+                fig.update_xaxis(tickangle=45)
+                st.plotly_chart(fig, use_container_width=True)
+                
+                # Performance statistics
+                avg_performance = df_performance.groupby('Manufacturer')['FP32_Final'].mean().sort_values(ascending=False)
+                top_performer = avg_performance.index[0]
+                top_avg = avg_performance.iloc[0]
+                
+                st.metric(
+                    f"🚀 Top Performer", 
+                    f"{top_performer}", 
+                    f"{top_avg:,.0f} GFLOPS avg"
+                )
+            else:
+                st.warning("Insufficient data for performance distribution (need 5+ GPUs per manufacturer)")
+                
+        except Exception as e:
+            st.error(f"Could not generate performance distribution: {e}")
+            
+            # Fallback: Simple scatter plot
+            try:
+                avg_perf = df_clean.groupby('Manufacturer')['FP32_Final'].mean().sort_values(ascending=False).head(8)
+                fig = px.bar(
+                    x=avg_perf.index,
+                    y=avg_perf.values,
+                    title="Average Performance by Manufacturer",
+                    labels={'x': 'Manufacturer', 'y': 'Average Performance (GFLOPS)'}
+                )
+                fig.update_layout(height=400, margin=dict(t=40, b=40, l=40, r=40))
+                st.plotly_chart(fig, use_container_width=True)
+            except Exception as e2:
+                st.error(f"Fallback chart also failed: {e2}")
+    
+    # Additional manufacturer insights
+    st.markdown("---")
+    st.markdown("### 🔍 Manufacturer Insights")
+    
+    try:
+        col_insight1, col_insight2, col_insight3, col_insight4 = st.columns(4)
         
-        fig = px.box(
-            df,
-            x='Manufacturer',
-            y='FP32_Final',
-            title="Performance Distribution by Manufacturer"
-        )
-        st.plotly_chart(fig, use_container_width=True)
+        # Calculate insights
+        total_manufacturers = len(df_clean['Manufacturer'].unique())
+        total_gpus = len(df_clean)
+        avg_perf_overall = df_clean['FP32_Final'].mean()
+        
+        # Efficiency leaders (if available)
+        efficiency_leader = "N/A"
+        if 'GFLOPS_per_Watt' in df_clean.columns:
+            eff_by_mfg = df_clean.groupby('Manufacturer')['GFLOPS_per_Watt'].mean().sort_values(ascending=False)
+            if len(eff_by_mfg) > 0:
+                efficiency_leader = eff_by_mfg.index[0]
+        
+        with col_insight1:
+            st.metric("🏭 Total Manufacturers", f"{total_manufacturers}")
+        
+        with col_insight2:
+            st.metric("🖥️ Total GPUs", f"{total_gpus:,}")
+        
+        with col_insight3:
+            st.metric("📊 Avg Performance", f"{avg_perf_overall:,.0f} GFLOPS")
+        
+        with col_insight4:
+            st.metric("⚡ Efficiency Leader", f"{efficiency_leader}")
+    
+    except Exception as e:
+        st.warning(f"Could not generate manufacturer insights: {e}")
 
 def show_technology_evolution(df):
     """Show technology evolution trends"""
@@ -602,8 +917,7 @@ def show_gaming_vs_ai_performance(df):
                     x='FP32_Final',
                     y=gaming_metric,
                     color='Manufacturer',
-                    title=f"FP32 Performance vs {gaming_metric}",
-                    trendline="ols"
+                    title=f"FP32 Performance vs {gaming_metric}"
                 )
                 st.plotly_chart(fig, use_container_width=True)
         else:
@@ -620,8 +934,7 @@ def show_gaming_vs_ai_performance(df):
                     x='FP32_Final',
                     y=ai_metric,
                     color='Manufacturer',
-                    title=f"FP32 Performance vs {ai_metric}",
-                    trendline="ols"
+                    title=f"FP32 Performance vs {ai_metric}"
                 )
                 st.plotly_chart(fig, use_container_width=True)
         else:
@@ -797,7 +1110,6 @@ def show_performance_regression(df):
                     x=feature,
                     y=target_var,
                     color='Manufacturer',
-                    trendline="ols",
                     title=f"{target_var} vs {feature} (Linear Regression)"
                 )
             elif reg_type == "Polynomial (degree 2)":
@@ -806,8 +1118,6 @@ def show_performance_regression(df):
                     x=feature,
                     y=target_var,
                     color='Manufacturer',
-                    trendline="ols",
-                    trendline_options=dict(log_x=False),
                     title=f"{target_var} vs {feature} (Polynomial Regression)"
                 )
             else:  # Logarithmic
@@ -816,7 +1126,6 @@ def show_performance_regression(df):
                     x=feature,
                     y=target_var,
                     color='Manufacturer',
-                    trendline="ols",
                     title=f"{target_var} vs {feature} (Log Scale)",
                     log_x=True
                 )
@@ -827,19 +1136,49 @@ def show_performance_regression(df):
             if len(selected_features) >= 2:
                 st.markdown("#### 🔮 Multi-Variable Analysis")
                 
-                feature_x = selected_features[0]
-                feature_y = selected_features[1]
-                
-                fig = px.scatter_3d(
-                    df,
-                    x=feature_x,
-                    y=feature_y,
-                    z=target_var,
-                    color='Manufacturer',
-                    title=f"3D Regression: {target_var} vs {feature_x} & {feature_y}"
-                )
-                fig.update_layout(height=500)
-                st.plotly_chart(fig, use_container_width=True)
+                try:
+                    feature_x = selected_features[0]
+                    feature_y = selected_features[1]
+                    
+                    # Clean data for 3D visualization
+                    required_cols = [feature_x, feature_y, target_var]
+                    available_cols = [col for col in required_cols if col in df.columns]
+                    
+                    if len(available_cols) == 3:
+                        analysis_data = df[required_cols].dropna()
+                        
+                        if len(analysis_data) > 10:
+                            # Check if Manufacturer column exists and add it
+                            color_col = None
+                            if 'Manufacturer' in df.columns:
+                                manufacturer_data = df.loc[analysis_data.index, 'Manufacturer']
+                                analysis_data = analysis_data.copy()
+                                analysis_data['Manufacturer'] = manufacturer_data
+                                color_col = 'Manufacturer'
+                            
+                            fig = px.scatter_3d(
+                                analysis_data,
+                                x=feature_x,
+                                y=feature_y,
+                                z=target_var,
+                                color=color_col,
+                                title=f"3D Regression: {target_var} vs {feature_x} & {feature_y}",
+                                labels={
+                                    feature_x: feature_x.replace('_', ' '),
+                                    feature_y: feature_y.replace('_', ' '),
+                                    target_var: target_var.replace('_', ' ')
+                                }
+                            )
+                            fig.update_layout(height=500)
+                            st.plotly_chart(fig, use_container_width=True)
+                        else:
+                            st.warning("Insufficient data points for 3D analysis (need >10 valid data points)")
+                    else:
+                        missing_cols = [col for col in required_cols if col not in df.columns]
+                        st.warning(f"Missing columns for 3D analysis: {missing_cols}")
+                        
+                except Exception as e:
+                    st.error(f"Error in multi-variable analysis: {e}")
     
     # Regression statistics
     if len(selected_features) >= 1 and target_var in df.columns:
@@ -894,22 +1233,52 @@ def show_3d_performance_space(df):
     
     with col2:
         # Create 3D scatter plot
-        scatter_kwargs = {
-            'data_frame': df,
-            'x': x_axis,
-            'y': y_axis,
-            'z': z_axis,
-            'color': color_by,
-            'title': f"3D Performance Space: {x_axis} vs {y_axis} vs {z_axis}",
-            'hover_data': ['gpuName'] if 'gpuName' in df.columns else None
-        }
-        
-        if size_by != "None":
-            scatter_kwargs['size'] = size_by
-        
-        fig = px.scatter_3d(**scatter_kwargs)
-        fig.update_layout(height=600)
-        st.plotly_chart(fig, use_container_width=True)
+        try:
+            # Check if all required columns exist
+            required_cols = [x_axis, y_axis, z_axis]
+            if color_by and color_by in df.columns:
+                required_cols.append(color_by)
+            
+            # Clean data for visualization
+            plot_data = df[required_cols].dropna()
+            
+            if len(plot_data) > 5:
+                scatter_kwargs = {
+                    'data_frame': plot_data,
+                    'x': x_axis,
+                    'y': y_axis,
+                    'z': z_axis,
+                    'title': f"3D Performance Space: {x_axis} vs {y_axis} vs {z_axis}",
+                    'labels': {
+                        x_axis: x_axis.replace('_', ' '),
+                        y_axis: y_axis.replace('_', ' '),
+                        z_axis: z_axis.replace('_', ' ')
+                    }
+                }
+                
+                # Add color if column exists
+                if color_by and color_by in plot_data.columns:
+                    scatter_kwargs['color'] = color_by
+                
+                # Add hover data if available
+                if 'gpuName' in df.columns:
+                    gpu_names = df.loc[plot_data.index, 'gpuName']
+                    plot_data = plot_data.copy()
+                    plot_data['gpuName'] = gpu_names
+                    scatter_kwargs['hover_data'] = ['gpuName']
+                
+                # Add size if specified
+                if size_by != "None" and size_by in plot_data.columns:
+                    scatter_kwargs['size'] = size_by
+                
+                fig = px.scatter_3d(**scatter_kwargs)
+                fig.update_layout(height=600)
+                st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.warning("Insufficient data for 3D visualization (need >5 valid data points)")
+                
+        except Exception as e:
+            st.error(f"Error creating 3D visualization: {e}")
     
     # Performance clusters
     st.markdown("#### 🎯 Performance Clusters")
@@ -1166,8 +1535,7 @@ def show_benchmark_comparison(df):
             color='Manufacturer',
             size='TDP',
             hover_data=['gpuName'],
-            title=f"FP32 Performance vs {selected_benchmark}",
-            trendline="ols"
+            title=f"FP32 Performance vs {selected_benchmark}"
         )
         fig.update_layout(height=500)
         st.plotly_chart(fig, use_container_width=True) 

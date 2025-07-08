@@ -20,6 +20,70 @@ def show_hardware_comparison():
     df = st.session_state.data
     models = getattr(st.session_state, 'models', {})
     
+    # Debug section - show model status
+    with st.expander("🔧 Model Status (Debug)", expanded=False):
+        col_debug1, col_debug2 = st.columns([3, 1])
+        
+        with col_debug1:
+            st.markdown("**Available Models & Preprocessors:**")
+        
+        with col_debug2:
+            if st.button("🔄 Refresh Models", type="secondary"):
+                # Clear cached data and reload
+                if hasattr(st.session_state, 'models'):
+                    del st.session_state.models
+                st.cache_data.clear()
+                st.rerun()
+        
+        if models:
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown("**Models:**")
+                model_count = 0
+                for key, value in models.items():
+                    if 'model.pkl' in key:
+                        model_count += 1
+                        has_predict = hasattr(value, 'predict')
+                        status = "✅" if has_predict else "❌"
+                        st.write(f"{status} {key.replace('.pkl', '')}")
+                        if not has_predict:
+                            st.write(f"   Type: {type(value)}")
+                
+                st.write(f"**Total Models: {model_count}**")
+            
+            with col2:
+                st.markdown("**Preprocessors:**")
+                prep_count = 0
+                for key, value in models.items():
+                    if 'preprocessor' in key:
+                        prep_count += 1
+                        has_transform = hasattr(value, 'transform')
+                        status = "✅" if has_transform else "❌"
+                        st.write(f"{status} {key.replace('.pkl', '')}")
+                        if not has_transform:
+                            st.write(f"   Type: {type(value)}")
+                
+                st.write(f"**Total Preprocessors: {prep_count}**")
+        else:
+            st.error("No models loaded in session state")
+            st.info("Try refreshing the page or check model files in data/models/phase3_outputs/")
+            
+            # Show what we're looking for
+            expected_files = [
+                "random_forest_FP32_Final_model.pkl",
+                "preprocessor_performance.pkl",
+                "efficiency_random_forest_GFLOPS_per_Watt_model.pkl", 
+                "preprocessor_efficiency.pkl",
+                "classification_random_forest_AI_Performance_Category_model.pkl",
+                "preprocessor_classification.pkl",
+                "classification_label_encoder_AI_Performance_Category.pkl"
+            ]
+            
+            st.markdown("**Expected Model Files:**")
+            for file in expected_files:
+                st.write(f"• {file}")
+    
     # Create tabs for different comparison modes
     tab1, tab2, tab3 = st.tabs(["🛠️ Custom Builder", "📊 Database Compare", "🎯 Use Case Optimizer"])
     
@@ -285,8 +349,21 @@ def show_configuration_comparison(configs: List[Dict], models: Dict, df: pd.Data
 def generate_hardware_predictions(config: Dict, models: Dict, df: pd.DataFrame) -> Dict:
     """Generate ML predictions for hardware configuration"""
     try:
-        # Import prediction functions from ai_prediction module
-        from pages.ai_prediction import create_feature_vector_for_prediction, generate_fallback_predictions
+        # Try to import prediction functions from ai_prediction module
+        try:
+            from pages.ai_prediction import create_feature_vector_for_prediction, generate_fallback_predictions
+        except ImportError:
+            st.warning("AI prediction module not available, using basic calculations")
+            # Use basic fallback calculations
+            base_perf = config['cores'] * 0.0012  # Simple estimate based on cores
+            base_eff = base_perf * 1000 / config['tdp']
+            
+            return {
+                'FP32_Performance_TFLOPS': max(0.1, base_perf),
+                'FP32_Performance_GFLOPS': max(100, base_perf * 1000),
+                'GFLOPS_per_Watt': max(1, base_eff),
+                'AI_Performance_Category': 'Mid-Range'
+            }
         
         # Create feature vector
         features = create_feature_vector_for_prediction(
@@ -298,59 +375,128 @@ def generate_hardware_predictions(config: Dict, models: Dict, df: pd.DataFrame) 
         predictions = {}
         
         if features is not None and models:
-            # Performance prediction
-            if 'random_forest_FP32_Final_model.pkl' in models and 'preprocessor_performance.pkl' in models:
-                try:
-                    perf_model = models['random_forest_FP32_Final_model.pkl']
-                    perf_preprocessor = models['preprocessor_performance.pkl']
-                    X_processed = perf_preprocessor.transform([features])
-                    fp32_pred = perf_model.predict(X_processed)[0]
-                    predictions['FP32_Performance_GFLOPS'] = fp32_pred / 1e9
-                    predictions['FP32_Performance_TFLOPS'] = fp32_pred / 1e12
-                except Exception as e:
-                    st.warning(f"Performance model error: {e}")
+            # Performance prediction with validation
+            try:
+                perf_model_key = 'random_forest_FP32_Final_model.pkl'
+                perf_prep_key = 'preprocessor_performance.pkl'
+                
+                if (perf_model_key in models and perf_prep_key in models and
+                    hasattr(models[perf_prep_key], 'transform') and
+                    hasattr(models[perf_model_key], 'predict')):
+                    
+                    perf_model = models[perf_model_key]
+                    perf_preprocessor = models[perf_prep_key]
+                    
+                    # Validate preprocessor
+                    if hasattr(perf_preprocessor, 'transform'):
+                        X_processed = perf_preprocessor.transform([features])
+                        fp32_pred = perf_model.predict(X_processed)[0]
+                        predictions['FP32_Performance_GFLOPS'] = max(0, fp32_pred / 1e9)
+                        predictions['FP32_Performance_TFLOPS'] = max(0, fp32_pred / 1e12)
+                    else:
+                        st.warning("Performance preprocessor not properly loaded")
+                else:
+                    st.warning("Performance model or preprocessor not available")
+                    
+            except Exception as e:
+                st.warning(f"Performance model error: {str(e)}")
             
-            # Efficiency prediction
-            if 'efficiency_random_forest_GFLOPS_per_Watt_model.pkl' in models and 'preprocessor_efficiency.pkl' in models:
-                try:
-                    eff_model = models['efficiency_random_forest_GFLOPS_per_Watt_model.pkl']
-                    eff_preprocessor = models['preprocessor_efficiency.pkl']
-                    X_processed = eff_preprocessor.transform([features])
-                    eff_pred = eff_model.predict(X_processed)[0]
-                    predictions['GFLOPS_per_Watt'] = max(0, eff_pred)
-                except Exception as e:
-                    st.warning(f"Efficiency model error: {e}")
+            # Efficiency prediction with validation
+            try:
+                eff_model_key = 'efficiency_random_forest_GFLOPS_per_Watt_model.pkl'
+                eff_prep_key = 'preprocessor_efficiency.pkl'
+                
+                if (eff_model_key in models and eff_prep_key in models and
+                    hasattr(models[eff_prep_key], 'transform') and
+                    hasattr(models[eff_model_key], 'predict')):
+                    
+                    eff_model = models[eff_model_key]
+                    eff_preprocessor = models[eff_prep_key]
+                    
+                    # Validate preprocessor
+                    if hasattr(eff_preprocessor, 'transform'):
+                        X_processed = eff_preprocessor.transform([features])
+                        eff_pred = eff_model.predict(X_processed)[0]
+                        predictions['GFLOPS_per_Watt'] = max(0, eff_pred)
+                    else:
+                        st.warning("Efficiency preprocessor not properly loaded")
+                else:
+                    st.warning("Efficiency model or preprocessor not available")
+                    
+            except Exception as e:
+                st.warning(f"Efficiency model error: {str(e)}")
             
-            # AI Category prediction
-            if ('classification_random_forest_AI_Performance_Category_model.pkl' in models and 
-                'preprocessor_classification.pkl' in models and
-                'classification_label_encoder_AI_Performance_Category.pkl' in models):
-                try:
-                    cat_model = models['classification_random_forest_AI_Performance_Category_model.pkl']
-                    cat_preprocessor = models['preprocessor_classification.pkl']
-                    cat_encoder = models['classification_label_encoder_AI_Performance_Category.pkl']
-                    X_processed = cat_preprocessor.transform([features])
-                    cat_pred = cat_model.predict(X_processed)[0]
-                    ai_category = cat_encoder.inverse_transform([cat_pred])[0]
-                    predictions['AI_Performance_Category'] = ai_category
-                except Exception as e:
-                    st.warning(f"Classification model error: {e}")
+            # AI Category prediction with validation
+            try:
+                cat_model_key = 'classification_random_forest_AI_Performance_Category_model.pkl'
+                cat_prep_key = 'preprocessor_classification.pkl'
+                cat_enc_key = 'classification_label_encoder_AI_Performance_Category.pkl'
+                
+                if (cat_model_key in models and cat_prep_key in models and cat_enc_key in models and
+                    hasattr(models[cat_prep_key], 'transform') and
+                    hasattr(models[cat_model_key], 'predict') and
+                    hasattr(models[cat_enc_key], 'inverse_transform')):
+                    
+                    cat_model = models[cat_model_key]
+                    cat_preprocessor = models[cat_prep_key]
+                    cat_encoder = models[cat_enc_key]
+                    
+                    # Validate preprocessor and encoder
+                    if hasattr(cat_preprocessor, 'transform') and hasattr(cat_encoder, 'inverse_transform'):
+                        X_processed = cat_preprocessor.transform([features])
+                        cat_pred = cat_model.predict(X_processed)[0]
+                        ai_category = cat_encoder.inverse_transform([cat_pred])[0]
+                        predictions['AI_Performance_Category'] = ai_category
+                    else:
+                        st.warning("Classification preprocessor or encoder not properly loaded")
+                else:
+                    st.warning("Classification model, preprocessor, or encoder not available")
+                    
+            except Exception as e:
+                st.warning(f"Classification model error: {str(e)}")
         
-        # Fallback to algorithmic predictions if ML models fail
+        # Fallback to algorithmic predictions if ML models fail or don't exist
         if not predictions:
-            fallback = generate_fallback_predictions(
-                config['vendor'], config['architecture'], config['cores'],
-                config['memory_gb'], config['memory_bandwidth'], config['tdp'],
-                config['process_size'], config['has_tensor'], config['supports_int8'],
-                config['estimated_price'], df
-            )
-            predictions.update(fallback)
+            try:
+                fallback = generate_fallback_predictions(
+                    config['vendor'], config['architecture'], config['cores'],
+                    config['memory_gb'], config['memory_bandwidth'], config['tdp'],
+                    config['process_size'], config['has_tensor'], config['supports_int8'],
+                    config['estimated_price'], df
+                )
+                predictions.update(fallback)
+                st.info("Using algorithmic predictions (ML models not available)")
+            except Exception as e:
+                st.error(f"Fallback prediction error: {e}")
+        
+        # Ensure we have some basic predictions
+        if not predictions:
+            # Basic fallback calculations
+            base_perf = config['cores'] * 0.0012  # Simple estimate
+            base_eff = base_perf * 1000 / config['tdp']
+            
+            predictions = {
+                'FP32_Performance_TFLOPS': max(0.1, base_perf),
+                'FP32_Performance_GFLOPS': max(100, base_perf * 1000),
+                'GFLOPS_per_Watt': max(1, base_eff),
+                'AI_Performance_Category': 'Mid-Range'
+            }
+            st.info("Using basic algorithmic estimates")
         
         return predictions
         
     except Exception as e:
         st.error(f"Prediction error: {e}")
-        return {}
+        # Return basic fallback predictions
+        base_perf = config['cores'] * 0.0012  # More realistic estimate
+        base_eff = base_perf * 1000 / config['tdp']
+        
+        return {
+            'FP32_Performance_TFLOPS': max(0.1, base_perf),
+            'FP32_Performance_GFLOPS': max(100, base_perf * 1000),
+            'GFLOPS_per_Watt': max(1, base_eff),
+            'AI_Performance_Category': 'Mid-Range'
+        }
 
 def create_performance_comparison_chart(predictions: List[Dict]):
     """Create performance comparison bar chart"""

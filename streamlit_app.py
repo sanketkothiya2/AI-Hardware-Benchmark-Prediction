@@ -34,11 +34,59 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
+# Custom CSS for better styling with background tiles
 st.markdown("""
 <style>
     /* Import modern fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    /* Background tiles pattern */
+    .main .block-container {
+        background: 
+            linear-gradient(45deg, rgba(79, 172, 254, 0.02) 25%, transparent 25%), 
+            linear-gradient(-45deg, rgba(79, 172, 254, 0.02) 25%, transparent 25%), 
+            linear-gradient(45deg, transparent 75%, rgba(79, 172, 254, 0.02) 75%), 
+            linear-gradient(-45deg, transparent 75%, rgba(79, 172, 254, 0.02) 75%);
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        background-attachment: fixed;
+    }
+    
+    /* Alternative geometric tile pattern for variety */
+    .stApp {
+        background: 
+            radial-gradient(circle at 20px 20px, rgba(79, 172, 254, 0.05) 1px, transparent 1px),
+            radial-gradient(circle at 60px 60px, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+        background-size: 80px 80px, 120px 120px;
+        background-attachment: fixed;
+    }
+    
+    /* Overlay subtle hex pattern */
+    .stApp::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            linear-gradient(30deg, transparent 65%, rgba(79, 172, 254, 0.02) 70%, transparent 75%),
+            linear-gradient(150deg, transparent 65%, rgba(102, 126, 234, 0.02) 70%, transparent 75%);
+        background-size: 30px 52px;
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    /* Content container with subtle backdrop */
+    .main .block-container > div {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 1rem 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
     
     /* Main app styling */
     .main-header {
@@ -49,6 +97,11 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 1.5rem;
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(79, 172, 254, 0.2);
     }
     .sub-header {
         font-family: 'Inter', sans-serif;
@@ -57,17 +110,44 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     .metric-card {
-        background: linear-gradient(45deg, #f0f0f0, #ffffff);
-        padding: 1rem;
-        border-radius: 10px;
+        background: 
+            linear-gradient(45deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95)),
+            linear-gradient(135deg, rgba(79, 172, 254, 0.03) 0%, rgba(102, 126, 234, 0.03) 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
         border-left: 4px solid #1f77b4;
         margin: 0.5rem 0;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        overflow: hidden;
     }
     
-    /* Modern Light Sidebar Theme */
+    .metric-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 25% 25%, rgba(79, 172, 254, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    /* Modern Light Sidebar Theme with tiles */
     .css-1d391kg {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        background: 
+            linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%),
+            linear-gradient(45deg, rgba(79, 172, 254, 0.03) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(79, 172, 254, 0.03) 25%, transparent 25%);
+        background-size: 100% 100%, 20px 20px, 20px 20px;
+        background-position: 0 0, 0 0, 10px 10px;
         border-right: 3px solid #4facfe;
+        backdrop-filter: blur(10px);
     }
     
     /* Sidebar content container */
@@ -404,6 +484,77 @@ st.markdown("""
         text-transform: uppercase;
         letter-spacing: 1px;
     }
+    
+    /* Chart and visualization containers with tiles */
+    .js-plotly-plot, .plotly {
+        background: 
+            rgba(255, 255, 255, 0.95) !important,
+            linear-gradient(45deg, rgba(79, 172, 254, 0.02) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(79, 172, 254, 0.02) 25%, transparent 25%);
+        background-size: 100% 100%, 30px 30px, 30px 30px;
+        border-radius: 15px !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Data tables with tile pattern */
+    .stDataFrame {
+        background: 
+            rgba(255, 255, 255, 0.95),
+            radial-gradient(circle at 20% 20%, rgba(79, 172, 254, 0.02) 1px, transparent 1px),
+            radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 25px 25px, 35px 35px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
+    
+    /* Info and warning boxes with tiles */
+    .stAlert {
+        background: 
+            rgba(255, 255, 255, 0.9),
+            linear-gradient(30deg, rgba(79, 172, 254, 0.02) 50%, transparent 50%),
+            linear-gradient(150deg, rgba(102, 126, 234, 0.02) 50%, transparent 50%);
+        background-size: 100% 100%, 15px 26px, 15px 26px;
+        backdrop-filter: blur(15px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Column containers */
+    .element-container {
+        background: 
+            linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.7) 100%),
+            repeating-linear-gradient(45deg, rgba(79, 172, 254, 0.01) 0px, rgba(79, 172, 254, 0.01) 1px, transparent 1px, transparent 15px);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Tab containers with subtle tiles */
+    .stTabs [data-baseweb="tab-list"] {
+        background: 
+            rgba(255, 255, 255, 0.9),
+            linear-gradient(90deg, rgba(79, 172, 254, 0.02) 50%, transparent 50%);
+        background-size: 100% 100%, 20px 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Enhanced selectbox and input styling */
+    .stSelectbox > div > div {
+        background: 
+            rgba(255, 255, 255, 0.95),
+            radial-gradient(circle at center, rgba(79, 172, 254, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 12px 12px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(79, 172, 254, 0.2);
+        border-radius: 8px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -425,57 +576,147 @@ def load_model_artifacts():
     model_dir = Path('data/models/phase3_outputs')
     
     if not model_dir.exists():
+        st.error(f"Model directory does not exist: {model_dir}")
         return artifacts
+    
+    # List of expected model files
+    expected_files = [
+        'random_forest_FP32_Final_model.pkl',
+        'xgboost_FP32_Final_model.pkl', 
+        'efficiency_random_forest_GFLOPS_per_Watt_model.pkl',
+        'efficiency_xgboost_GFLOPS_per_Watt_model.pkl',
+        'classification_random_forest_AI_Performance_Category_model.pkl',
+        'classification_xgboost_PerformanceTier_model.pkl',
+        'preprocessor_performance.pkl',
+        'preprocessor_efficiency.pkl',
+        'preprocessor_classification.pkl',
+        'classification_label_encoder_AI_Performance_Category.pkl',
+        'classification_label_encoder_PerformanceTier.pkl'
+    ]
+    
+    loaded_count = 0
+    failed_count = 0
     
     try:
         # Load performance models
-        rf_fp32 = pickle.load(open(model_dir / 'random_forest_FP32_Final_model.pkl', 'rb'))
-        xgb_fp32 = pickle.load(open(model_dir / 'xgboost_FP32_Final_model.pkl', 'rb'))
+        try:
+            rf_fp32 = pickle.load(open(model_dir / 'random_forest_FP32_Final_model.pkl', 'rb'))
+            artifacts['random_forest_FP32_Final_model.pkl'] = rf_fp32
+            artifacts['rf_fp32'] = rf_fp32
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load RF FP32 model: {e}")
+            failed_count += 1
+            
+        try:
+            xgb_fp32 = pickle.load(open(model_dir / 'xgboost_FP32_Final_model.pkl', 'rb'))
+            artifacts['xgboost_FP32_Final_model.pkl'] = xgb_fp32
+            artifacts['xgb_fp32'] = xgb_fp32
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load XGB FP32 model: {e}")
+            failed_count += 1
         
         # Load efficiency models
-        rf_gflops = pickle.load(open(model_dir / 'efficiency_random_forest_GFLOPS_per_Watt_model.pkl', 'rb'))
-        xgb_gflops = pickle.load(open(model_dir / 'efficiency_xgboost_GFLOPS_per_Watt_model.pkl', 'rb'))
+        try:
+            rf_gflops = pickle.load(open(model_dir / 'efficiency_random_forest_GFLOPS_per_Watt_model.pkl', 'rb'))
+            artifacts['efficiency_random_forest_GFLOPS_per_Watt_model.pkl'] = rf_gflops
+            artifacts['rf_gflops'] = rf_gflops
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load RF efficiency model: {e}")
+            failed_count += 1
+            
+        try:
+            xgb_gflops = pickle.load(open(model_dir / 'efficiency_xgboost_GFLOPS_per_Watt_model.pkl', 'rb'))
+            artifacts['efficiency_xgboost_GFLOPS_per_Watt_model.pkl'] = xgb_gflops
+            artifacts['xgb_gflops'] = xgb_gflops
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load XGB efficiency model: {e}")
+            failed_count += 1
         
         # Load classification models
-        rf_perf_cat = pickle.load(open(model_dir / 'classification_random_forest_AI_Performance_Category_model.pkl', 'rb'))
-        xgb_tier = pickle.load(open(model_dir / 'classification_xgboost_PerformanceTier_model.pkl', 'rb'))
+        try:
+            rf_perf_cat = pickle.load(open(model_dir / 'classification_random_forest_AI_Performance_Category_model.pkl', 'rb'))
+            artifacts['classification_random_forest_AI_Performance_Category_model.pkl'] = rf_perf_cat
+            artifacts['rf_perf_cat'] = rf_perf_cat
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load RF AI category model: {e}")
+            failed_count += 1
+            
+        try:
+            xgb_tier = pickle.load(open(model_dir / 'classification_xgboost_PerformanceTier_model.pkl', 'rb'))
+            artifacts['classification_xgboost_PerformanceTier_model.pkl'] = xgb_tier
+            artifacts['classification_random_forest_PerformanceTier_model.pkl'] = xgb_tier  # Fallback key
+            artifacts['xgb_tier'] = xgb_tier
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load XGB tier model: {e}")
+            failed_count += 1
         
         # Load preprocessors
-        preprocessor_perf = pickle.load(open(model_dir / 'preprocessor_performance.pkl', 'rb'))
-        preprocessor_eff = pickle.load(open(model_dir / 'preprocessor_efficiency.pkl', 'rb'))
-        preprocessor_class = pickle.load(open(model_dir / 'preprocessor_classification.pkl', 'rb'))
+        try:
+            preprocessor_perf = pickle.load(open(model_dir / 'preprocessor_performance.pkl', 'rb'))
+            artifacts['preprocessor_performance.pkl'] = preprocessor_perf
+            artifacts['preprocessor_perf'] = preprocessor_perf
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load performance preprocessor: {e}")
+            failed_count += 1
+            
+        try:
+            preprocessor_eff = pickle.load(open(model_dir / 'preprocessor_efficiency.pkl', 'rb'))
+            artifacts['preprocessor_efficiency.pkl'] = preprocessor_eff
+            artifacts['preprocessor_eff'] = preprocessor_eff
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load efficiency preprocessor: {e}")
+            failed_count += 1
+            
+        try:
+            preprocessor_class = pickle.load(open(model_dir / 'preprocessor_classification.pkl', 'rb'))
+            artifacts['preprocessor_classification.pkl'] = preprocessor_class
+            artifacts['preprocessor_class'] = preprocessor_class
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load classification preprocessor: {e}")
+            failed_count += 1
         
         # Load encoders
-        encoder_ai_cat = pickle.load(open(model_dir / 'classification_label_encoder_AI_Performance_Category.pkl', 'rb'))
-        encoder_tier = pickle.load(open(model_dir / 'classification_label_encoder_PerformanceTier.pkl', 'rb'))
+        try:
+            encoder_ai_cat = pickle.load(open(model_dir / 'classification_label_encoder_AI_Performance_Category.pkl', 'rb'))
+            artifacts['classification_label_encoder_AI_Performance_Category.pkl'] = encoder_ai_cat
+            artifacts['encoder_ai_cat'] = encoder_ai_cat
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load AI category encoder: {e}")
+            failed_count += 1
+            
+        try:
+            encoder_tier = pickle.load(open(model_dir / 'classification_label_encoder_PerformanceTier.pkl', 'rb'))
+            artifacts['classification_label_encoder_PerformanceTier.pkl'] = encoder_tier
+            artifacts['encoder_tier'] = encoder_tier
+            loaded_count += 1
+        except Exception as e:
+            st.warning(f"Failed to load tier encoder: {e}")
+            failed_count += 1
         
-        # Store with abbreviated keys (for backward compatibility)
-        artifacts['rf_fp32'] = rf_fp32
-        artifacts['xgb_fp32'] = xgb_fp32
-        artifacts['rf_gflops'] = rf_gflops
-        artifacts['xgb_gflops'] = xgb_gflops
-        artifacts['rf_perf_cat'] = rf_perf_cat
-        artifacts['xgb_tier'] = xgb_tier
-        artifacts['preprocessor_perf'] = preprocessor_perf
-        artifacts['preprocessor_eff'] = preprocessor_eff
-        artifacts['preprocessor_class'] = preprocessor_class
+        # Show loading summary
+        if loaded_count > 0:
+            st.success(f"✅ Successfully loaded {loaded_count} model artifacts")
+        if failed_count > 0:
+            st.error(f"❌ Failed to load {failed_count} model artifacts")
         
-        # Store with full filenames (for page compatibility)
-        artifacts['random_forest_FP32_Final_model.pkl'] = rf_fp32
-        artifacts['xgboost_FP32_Final_model.pkl'] = xgb_fp32
-        artifacts['efficiency_random_forest_GFLOPS_per_Watt_model.pkl'] = rf_gflops
-        artifacts['efficiency_xgboost_GFLOPS_per_Watt_model.pkl'] = xgb_gflops
-        artifacts['classification_random_forest_AI_Performance_Category_model.pkl'] = rf_perf_cat
-        artifacts['classification_xgboost_PerformanceTier_model.pkl'] = xgb_tier
-        artifacts['classification_random_forest_PerformanceTier_model.pkl'] = xgb_tier  # Some pages may look for this
-        artifacts['preprocessor_performance.pkl'] = preprocessor_perf
-        artifacts['preprocessor_efficiency.pkl'] = preprocessor_eff
-        artifacts['preprocessor_classification.pkl'] = preprocessor_class
-        artifacts['classification_label_encoder_AI_Performance_Category.pkl'] = encoder_ai_cat
-        artifacts['classification_label_encoder_PerformanceTier.pkl'] = encoder_tier
+        # Debug: Show what was actually loaded
+        if len(artifacts) > 0:
+            st.info(f"🔍 Loaded models: {list(artifacts.keys())[:5]}...")  # Show first 5 keys
+        else:
+            st.error("🚨 No models were loaded successfully!")
         
     except Exception as e:
-        st.warning(f"Some models could not be loaded: {e}")
+        st.error(f"Critical error loading models: {e}")
     
     return artifacts
 
@@ -567,76 +808,7 @@ def main():
             
             st.markdown('</div>', unsafe_allow_html=True)
         
-        # Model Status Section - Using ML Models Section styling
-        models_loaded = len(st.session_state.models) if st.session_state.models else 0
-        st.markdown(f"""
-        <div class="ml-models-section">
-            <div class="ml-models-title">🧠 ML Models Status</div>
-            <div class="ml-models-count">{models_loaded}</div>
-            <div class="ml-models-label">Models Loaded</div>
-            <div style="margin-top: 0.5rem;">
-                <span class="status-badge">✓ Active</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Technical Stack - Using Tech Stack Section styling
-        st.markdown("""
-        <div class="tech-stack-section">
-            <div class="tech-stack-title">⚙️ Tech Stack</div>
-            <div class="tech-content">
-                <div>• Streamlit Framework</div>
-                <div>• Machine Learning (RF, XGBoost)</div>
-                <div>• Phase 2 Enhanced Dataset</div>
-                <div>• Interactive Visualizations</div>
-                <div>• Real-time Predictions</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Performance Metrics - Using Performance Section styling
-        if st.session_state.data is not None and st.session_state.models:
-            st.markdown("""
-            <div class="performance-section">
-                <div class="performance-title">🎯 Performance</div>
-                <div class="performance-content">
-                    <div class="performance-row">
-                        <span class="performance-label">Accuracy:</span>
-                        <span class="performance-value">82.5%</span>
-                    </div>
-                    <div class="performance-row">
-                        <span class="performance-label">Dataset:</span>
-                        <span class="performance-value">2,108 GPUs</span>
-                    </div>
-                    <div class="performance-row">
-                        <span class="performance-label">Models:</span>
-                        <span class="performance-value">12 Active</span>
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        # Project Information
-        st.markdown("""
-        <div class="project-info">
-            <div class="nav-title" style="text-align: center; margin-bottom: 1rem;">
-                🎯 Project Info
-            </div>
-            <div class="project-version">Version 3.0</div>
-            <div class="project-status">Phase 3 Complete</div>
-            <div class="status-badge">Production Ready</div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Footer
-        st.markdown("""
-        <div class="sidebar-footer">
-            <div class="footer-text">
-                Built with ❤️ by Georgina Oteng<br>
-                AI Benchmark Analysis
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+
     
     # Page routing
     if page == "🏠 Home":
