@@ -906,21 +906,52 @@ def show_home_page():
     with col4:
         st.metric("Price Range", f"${df['price'].min():.0f}-${df['price'].max():.0f}")
     
-    # Performance distribution chart
-    st.markdown("## 🎯 Performance Distribution")
+    # Top Performing GPUs Analysis
+    st.markdown("## 🏆 Top Performing GPUs by Performance Tier")
     
-    fig = px.histogram(
-        df, 
-        x='AI_Performance_Category',
-        color='Manufacturer',
-        title="GPU Distribution by AI Performance Category",
-        height=400
-    )
-    fig.update_layout(
-        xaxis_title="AI Performance Category",
-        yaxis_title="Number of GPUs"
-    )
-    st.plotly_chart(fig, use_container_width=True)
+    # Create two columns for different views
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("### 🚀 Performance Leaders (TFLOPS)")
+        if 'FP32_Final' in df.columns:
+            top_performance = df.nlargest(8, 'FP32_Final')[['gpuName', 'Manufacturer', 'FP32_Final']].copy()
+            top_performance['TFLOPS'] = (top_performance['FP32_Final'] / 1e12).round(2)
+            top_performance_display = top_performance[['gpuName', 'Manufacturer', 'TFLOPS']]
+            top_performance_display.index = range(1, len(top_performance_display) + 1)
+            st.dataframe(top_performance_display, use_container_width=True)
+    
+    with col2:
+        st.markdown("### ⚡ Efficiency Leaders (GFLOPS/W)")
+        if 'GFLOPS_per_Watt' in df.columns:
+            top_efficiency = df.nlargest(8, 'GFLOPS_per_Watt')[['gpuName', 'Manufacturer', 'GFLOPS_per_Watt']].copy()
+            top_efficiency['Efficiency'] = top_efficiency['GFLOPS_per_Watt'].round(2)
+            top_efficiency_display = top_efficiency[['gpuName', 'Manufacturer', 'Efficiency']]
+            top_efficiency_display.index = range(1, len(top_efficiency_display) + 1)
+            st.dataframe(top_efficiency_display, use_container_width=True)
+    
+    # Performance vs Efficiency Scatter Plot
+    st.markdown("### 📈 Performance vs Efficiency Analysis")
+    if 'FP32_Final' in df.columns and 'GFLOPS_per_Watt' in df.columns:
+        # Filter out outliers for better visualization
+        df_filtered = df[(df['FP32_Final'] > 0) & (df['GFLOPS_per_Watt'] > 0)].copy()
+        df_filtered['TFLOPS'] = df_filtered['FP32_Final'] / 1e12
+        
+        fig = px.scatter(
+            df_filtered,
+            x='TFLOPS',
+            y='GFLOPS_per_Watt',
+            color='Manufacturer',
+            size='TDP',
+            hover_data=['gpuName', 'Architecture'],
+            title="GPU Performance vs Efficiency (Size = TDP)",
+            height=400
+        )
+        fig.update_layout(
+            xaxis_title="Performance (TFLOPS)",
+            yaxis_title="Efficiency (GFLOPS/Watt)"
+        )
+        st.plotly_chart(fig, use_container_width=True)
     
     # Recent additions
     st.markdown("## 🔄 Recent Updates")
@@ -941,7 +972,7 @@ def show_dataset_overview():
     
     st.markdown("## 📊 Dataset Overview")
     
-    # Dataset info
+    # Dataset info and sources
     col1, col2 = st.columns(2)
     
     with col1:
@@ -952,14 +983,79 @@ def show_dataset_overview():
         st.write(f"**Data Types**: {df.dtypes.value_counts().to_dict()}")
     
     with col2:
-        st.markdown("### 🎯 Data Quality")
-        missing_data = df.isnull().sum()
-        missing_pct = (missing_data / len(df) * 100).round(2)
-        quality_df = pd.DataFrame({
-            'Missing Count': missing_data,
-            'Missing %': missing_pct
-        }).sort_values('Missing %', ascending=False).head(10)
-        st.dataframe(quality_df)
+        st.markdown("### 📊 Raw Dataset Sources")
+        
+        raw_datasets = {
+            "GPU Benchmarks v7": {
+                "records": "2,319",
+                "description": "Comprehensive GPU performance benchmarks with pricing and TDP data",
+                "key_features": "G3Dmark, G2Dmark, price, TDP, powerPerformance"
+            },
+            "GPU Graphics APIs": {
+                "records": "1,215", 
+                "description": "GPU performance scores across CUDA, Metal, OpenCL, and Vulkan",
+                "key_features": "CUDA scores, Metal scores, OpenCL scores, Vulkan scores"
+            },
+            "ML Hardware Database": {
+                "records": "216",
+                "description": "AI/ML specialized hardware with detailed technical specifications",
+                "key_features": "FP32/FP16 performance, Tensor performance, Memory bandwidth"
+            },
+            "MLPerf Benchmarks": {
+                "records": "863",
+                "description": "Industry-standard AI inference benchmark results",
+                "key_features": "LLM inference, Image generation, 3D-UNet, ResNet"
+            }
+        }
+        
+        for name, info in raw_datasets.items():
+            st.write(f"**{name}** ({info['records']} records)")
+            st.write(f"• {info['description']}")
+            st.write(f"• Key: {info['key_features']}")
+            st.write("")
+    
+    # Model Development Dataset Section
+    st.markdown("---")
+    st.markdown("### 🎯 Model Development Dataset")
+    
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        st.markdown("#### 📈 Phase 2 Final Enhanced Dataset")
+        st.markdown("**Current Production Dataset:** `phase2_final_enhanced_dataset.csv`")
+        
+        # Dataset composition
+        col_a, col_b = st.columns(2)
+        
+        with col_a:
+            st.metric("Total Records", "2,108", help="GPU configurations for model training")
+            st.metric("Manufacturers", "3", help="NVIDIA, AMD, Intel")
+            st.metric("Architectures", "17+", help="Ampere, RDNA 2, Ada Lovelace, etc.")
+        
+        with col_b:
+            st.metric("Feature Count", "49", help="Engineered features for ML models")
+            st.metric("Performance Metrics", "8", help="FP32, FP16, INT8, TOPs, GFLOPS")
+            st.metric("Categories", "5", help="AI performance tiers")
+    
+    with col4:
+        # Key enhancements applied
+        st.markdown("#### 🔧 Enhanced Features Applied")
+        enhancement_features = [
+            "**Bias Correction:** Manufacturer-specific performance adjustments",
+            "**Architecture Normalization:** Cross-generation performance scaling",
+            "**Derived Metrics:** Efficiency ratios, performance per dollar",
+            "**AI Performance Categories:** Flagship, High-End, Mid-Range, Entry, Basic",
+            "**Performance Tiers:** Ultra, Premium, High-End, Mid-Range, Entry-Level"
+        ]
+        
+        for feature in enhancement_features:
+            st.markdown(f"• {feature}")
+        
+        # Model training targets
+        st.markdown("#### 🎯 ML Model Targets")
+        st.markdown("• **Performance Prediction:** FP32_Final, Bias_Corrected_Performance")
+        st.markdown("• **Efficiency Modeling:** GFLOPS_per_Watt, TOPs_per_Watt")
+        st.markdown("• **Classification:** AI_Performance_Category, PerformanceTier")
     
     # Sample data
     st.markdown("### 🔍 Sample Data")
